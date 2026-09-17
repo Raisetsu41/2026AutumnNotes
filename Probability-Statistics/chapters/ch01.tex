@@ -1,0 +1,818 @@
+\section{概率论基础}\label{ux6982ux7387ux8bbaux57faux7840}
+
+\subsection{Set Theory（集合论）}\label{set-theoryux96c6ux5408ux8bba}
+
+\subsubsection{From random experiment to probability model（从随机试验到概率模型）}\label{from-random-experiment-to-probability-modelux4eceux968fux673aux8bd5ux9a8cux5230ux6982ux7387ux6a21ux578b}
+
+A random experiment has well-defined possible outcomes, but the realized outcome is uncertain before the experiment.
+
+\[
+\text{random experiment} \to \text{sample space } S \to \text{events } A \to \text{probabilities } P(A)
+\]
+
+（随机试验 → 样本空间 → 事件 → 概率）
+
+\subsubsection{Sample space and events（样本空间与事件）}\label{sample-space-and-eventsux6837ux672cux7a7aux95f4ux4e0eux4e8bux4ef6}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Sample space} \(S\)（样本空间）: the set of all possible basic outcomes; finite（有限）, countably infinite（可数无限）, or uncountable（不可数）.
+\item
+  \textbf{Countable}（可数）: can be placed in one-to-one correspondence with a subset of the integers.
+\item
+  \textbf{Event}（事件）: any subset \(A\subseteq S\); \(A\) occurs iff the realized outcome \(\in A\).
+\item
+  \(\varnothing\): the impossible event（不可能事件）.
+\item
+  \(A\subseteq B\iff (x\in A\Rightarrow x\in B)\); \(A=B\iff A\subseteq B\) and \(B\subseteq A\). Prove set equality by double inclusion（双向包含）.
+\end{itemize}
+
+\subsubsection{Set operations and algebra of sets（集合运算与代数性质）}\label{set-operations-and-algebra-of-setsux96c6ux5408ux8fd0ux7b97ux4e0eux4ee3ux6570ux6027ux8d28}
+
+\[
+A\cup B=\{x:x\in A\text{ or }x\in B\},\qquad
+A\cap B=\{x:x\in A\text{ and }x\in B\},
+\]
+\[
+A^{c}=\{x\in S:x\notin A\}.
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  Commutative, associative, distributive laws all hold;
+\item
+  De Morgan's laws: \((A\cup B)^{c}=A^{c}\cap B^{c}\), \((A\cap B)^{c}=A^{c}\cup B^{c}\);
+\item
+  Generalized De Morgan for countable unions/intersections:
+  \[
+  \left(\bigcup_i A_i\right)^{c}=\bigcap_i A_i^{c},\qquad
+  \left(\bigcap_i A_i\right)^{c}=\bigcup_i A_i^{c}.
+  \]
+\item
+  \(\bigcup_{i=1}^{\infty}A_i\): belongs to at least one \(A_i\); \(\bigcap_{i=1}^{\infty}A_i\): belongs to every \(A_i\).
+\end{itemize}
+
+\subsubsection{Partitions（分割）}\label{partitionsux5206ux5272}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Mutually exclusive} (pairwise disjoint)（两两互斥）: \(A_i\cap A_j=\varnothing\) for \(i\ne j\);
+\item
+  \textbf{Collectively exhaustive}（穷举）: \(\bigcup_i A_i=S\);
+\item
+  \textbf{Partition}（分割）: pairwise disjoint and collectively exhaustive. Central for the law of total probability and Bayes' rule.
+\end{itemize}
+
+\subsection{Basics of Probability Theory（概率论基础）}\label{basics-of-probability-theoryux6982ux7387ux8bbaux57faux7840}
+
+\subsubsection{\texorpdfstring{\(\sigma\)-algebra（\(\sigma\)-代数）}{\textbackslash sigma-algebra（\textbackslash sigma-代数）}}\label{sigma-algebrasigma-ux4ee3ux6570}
+
+A collection \(\mathcal{B}\) of subsets of \(S\) is a \textbf{\(\sigma\)-algebra} if:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\varnothing\in\mathcal{B}\);
+\item
+  \(A\in\mathcal{B}\Rightarrow A^{c}\in\mathcal{B}\);
+\item
+  \(A_1,A_2,\dots\in\mathcal{B}\Rightarrow\bigcup_{i=1}^{\infty}A_i\in\mathcal{B}\).
+\end{enumerate}
+
+By De Morgan's laws, a \(\sigma\)-algebra is also closed under countable intersections. The power set \(2^{S}\) and the trivial family \(\{\varnothing,S\}\) are both \(\sigma\)-algebras.
+
+\subsubsection{Probability function and axioms（概率函数与公理）}\label{probability-function-and-axiomsux6982ux7387ux51fdux6570ux4e0eux516cux7406}
+
+A complete probability model is \((S,\mathcal{B},P)\), with \(P:\mathcal{B}\to[0,1]\):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Nonnegativity（非负性）: \(P(A)\ge0\);
+\item
+  Normalization（规范性）: \(P(S)=1\);
+\item
+  Countable additivity（可数可加性）: for pairwise disjoint \(A_1,A_2,\dots\),
+  \[
+  P\left(\bigcup_{i=1}^{\infty}A_i\right)=\sum_{i=1}^{\infty}P(A_i).
+  \]
+\end{enumerate}
+
+\textbf{Key point}: the axioms regulate how probabilities behave; they do not determine which probability model fits a given experiment（公理只约束概率运算，不决定具体模型；那是建模假设）.
+
+\subsubsection{Consequences of the axioms（公理推论）}\label{consequences-of-the-axiomsux516cux7406ux63a8ux8bba}
+
+\[
+P(\varnothing)=0,\qquad 0\le P(A)\le1,\qquad P(A^{c})=1-P(A),
+\]
+\[
+A\subseteq B\Rightarrow P(A)\le P(B)\quad\text{(monotonicity)}.
+\]
+
+Two-event identities（两事件公式）:
+
+\[
+P(B\cap A^{c})=P(B)-P(A\cap B),
+\]
+\[
+P(A\cup B)=P(A)+P(B)-P(A\cap B).
+\]
+
+\subsubsection{Partition identity and inequalities（分割公式与不等式）}\label{partition-identity-and-inequalitiesux5206ux5272ux516cux5f0fux4e0eux4e0dux7b49ux5f0f}
+
+\begin{itemize}
+\tightlist
+\item
+  If \(\{C_i\}\) is a partition of \(S\), then（全概率结构）:
+  \[
+  P(A)=\sum_i P(A\cap C_i).
+  \]
+\item
+  \textbf{Boole's inequality}:
+  \[
+  P\left(\bigcup_i A_i\right)\le\sum_i P(A_i).
+  \]
+\item
+  \textbf{Bonferroni lower bound} (via Boole on complements):
+  \[
+  P\left(\bigcap_{i=1}^{n}A_i\right)\ge\sum_{i=1}^{n}P(A_i)-(n-1).
+  \]
+  Two-event case: \(P(A\cap B)\ge P(A)+P(B)-1\).
+\end{itemize}
+
+\subsubsection{Constructing a probability on a countable space（可数样本空间上构造概率）}\label{constructing-a-probability-on-a-countable-spaceux53efux6570ux6837ux672cux7a7aux95f4ux4e0aux6784ux9020ux6982ux7387}
+
+Let \(S=\{s_1,s_2,\dots\}\) be finite or countable. If \(p_i\ge0\) and \(\sum_i p_i=1\), then
+
+\[
+P(A)=\sum_{i:\,s_i\in A}p_i
+\]
+
+defines a probability function: assign probability mass \(p_i\) to each outcome and sum over the event.
+
+\subsubsection{Counting（计数）}\label{countingux8ba1ux6570}
+
+\begin{itemize}
+\tightlist
+\item
+  Multiplication principle（分步计数原理）: \(k\) successive tasks with \(n_1,\dots,n_k\) choices give \(n_1n_2\cdots n_k\) ways.
+\item
+  Factorial（阶乘）: \(n!=n(n-1)\cdots1\), with \(0!=1\).
+\end{itemize}
+
+Sampling \(r\) objects from \(n\):
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Sampling
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Ordered
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Unordered
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Without replacement（不放回） & \(\dfrac{n!}{(n-r)!}\) & \(\dbinom{n}{r}=\dfrac{n!}{r!(n-r)!}\) \\
+With replacement（放回） & \(n^{r}\) & \(\dbinom{n+r-1}{r}\) \\
+\end{longtable}
+
+\begin{itemize}
+\tightlist
+\item
+  Stars and bars（隔板法）: arrange \(r\) stars and \(n-1\) bars, then choose \(r\) positions for the stars.
+\item
+  Multinomial coefficient（多重集排列）: with \(k\) positions and values repeated \(k_1,\dots,k_m\) times,
+  \[
+  \frac{k!}{k_1!\,k_2!\cdots k_m!}.
+  \]
+\end{itemize}
+
+\subsubsection{Equally likely outcomes（等可能模型）}\label{equally-likely-outcomesux7b49ux53efux80fdux6a21ux578b}
+
+If the finite sample space has \(N\) equally likely outcomes,
+
+\[
+P(A)=\frac{|A|}{|S|}.
+\]
+
+\textbf{Warning}: valid only when the elementary outcomes are truly equally likely. Probabilities must follow the actual sampling mechanism; unordered outcomes are not automatically equally likely（不能为了方便把无序结果当作等可能）.
+
+\subsection{Conditional Probability and Independence（条件概率与独立性）}\label{conditional-probability-and-independenceux6761ux4ef6ux6982ux7387ux4e0eux72ecux7acbux6027}
+
+\subsubsection{Conditional Probability（条件概率）}\label{conditional-probabilityux6761ux4ef6ux6982ux7387}
+
+\textbf{Definition}
+
+对事件 \(A,B\)，若 \(P(B)>0\)，则在 \(B\) 已发生的条件下，\(A\) 的条件概率为
+
+\[
+P(A\mid B)=\frac{P(A\cap B)}{P(B)}.
+\]
+
+获知 \(B\) 已发生后，新的有效样本空间被限制到 \(B\)；\(P(A\mid B)\) 衡量 \(B\) 中同时属于 \(A\) 的概率质量占比。
+
+\subsubsection{Multiplication rule（乘法公式）}\label{multiplication-ruleux4e58ux6cd5ux516cux5f0f}
+
+由定义直接得到
+
+\[
+P(A\cap B)=P(A\mid B)P(B)=P(B\mid A)P(A).
+\]
+
+对 \(A_1,\ldots,A_n\) 反复使用乘法公式，可得 \textbf{chain rule}：
+
+\[
+P\left(\bigcap_{i=1}^{n}A_i\right)
+=P(A_1)\prod_{i=2}^{n}
+P\left(A_i\,\middle|\,\bigcap_{j=1}^{i-1}A_j\right),
+\]
+
+前提是式中的条件概率均有定义。
+
+\subsubsection{Example：连续抽到四张 A}\label{exampleux8fdeux7eedux62bdux5230ux56dbux5f20-a}
+
+一副 52 张的标准扑克牌不放回抽取，前四张全是 A 的概率为
+
+\[
+P(\text{first four cards are aces})
+=\frac{4}{52}\cdot\frac{3}{51}\cdot\frac{2}{50}\cdot\frac{1}{49}
+=\frac{1}{\binom{52}{4}}.
+\]
+
+每次抽牌都会改变下一次的条件样本空间，因此各因子的分子、分母依次减少。
+
+\subsubsection{Example：不放回抽球}\label{exampleux4e0dux653eux56deux62bdux7403}
+
+盒中有 \(r\) 个红球和 \(b\) 个蓝球。连续不放回抽取两个球，令
+
+\[
+A=\{\text{first ball is red}\},
+\qquad
+B=\{\text{second ball is blue}\}.
+\]
+
+则
+
+\[
+P(A)=\frac{r}{r+b},
+\qquad
+P(B\mid A)=\frac{b}{r+b-1},
+\]
+
+所以
+
+\[
+P(A\cap B)=\frac{r}{r+b}\cdot\frac{b}{r+b-1}.
+\]
+
+\subsubsection{Law of Total Probability（全概率公式）}\label{law-of-total-probabilityux5168ux6982ux7387ux516cux5f0f}
+
+若 \(A_1,A_2,\ldots\) 构成样本空间 \(S\) 的一个 partition，即两两互斥且并集为 \(S\)，则对任意事件 \(B\)，
+
+\[
+P(B)=\sum_i P(B\cap A_i)
+=\sum_i P(B\mid A_i)P(A_i).
+\]
+
+它把事件 \(B\) 按照所有可能来源 \(A_i\) 拆开，再将各路径的概率相加。
+
+\subsubsection{Example：三个组别}\label{exampleux4e09ux4e2aux7ec4ux522b}
+
+若 \(P(B_i)=1/3\)，且 \(P(A\mid B_i)=i/6\)，\(i=1,2,3\)，则
+
+\[
+P(A)
+=\sum_{i=1}^{3}P(A\mid B_i)P(B_i)
+=\frac{1}{3}\left(\frac{1}{6}+\frac{2}{6}+\frac{3}{6}\right)
+=\frac{1}{3}.
+\]
+
+\subsubsection{Bayes' Rule（贝叶斯公式）}\label{bayes-ruleux8d1dux53f6ux65afux516cux5f0f}
+
+若 \(A_1,A_2,\ldots\) 构成 partition 且 \(P(B)>0\)，则
+
+\[
+P(A_i\mid B)
+=\frac{P(B\mid A_i)P(A_i)}
+{\sum_j P(B\mid A_j)P(A_j)}.
+\]
+
+\textbf{Interpretation}
+
+Bayes' rule 把条件方向从 \(P(B\mid A_i)\) 反转为 \(P(A_i\mid B)\)：
+
+\[
+\text{posterior}
+\propto
+\text{likelihood}\times\text{prior}.
+\]
+
+分母是由全概率公式得到的 \(P(B)\)，负责把各个未标准化权重归一化。
+
+\subsubsection{Example：汽车保险风险分类}\label{exampleux6c7dux8f66ux4fddux9669ux98ceux9669ux5206ux7c7b}
+
+客户被分为高风险 \(H\)、中风险 \(M\) 和低风险 \(L\)：
+
+\[
+P(H)=0.25,\qquad P(M)=0.25,\qquad P(L)=0.50,
+\]
+
+一年内至少发生一次事故的条件概率为
+
+\[
+P(A\mid H)=0.25,\qquad
+P(A\mid M)=0.16,\qquad
+P(A\mid L)=0.10.
+\]
+
+已知某客户发生事故，则其属于高风险客户的概率为
+
+\[
+\begin{aligned}
+P(H\mid A)
+&=\frac{P(A\mid H)P(H)}
+{P(A\mid H)P(H)+P(A\mid M)P(M)+P(A\mid L)P(L)}\\
+&=\frac{0.25\times0.25}
+{0.25\times0.25+0.16\times0.25+0.10\times0.50}\\
+&\approx0.410.
+\end{aligned}
+\]
+
+观察到事故后，高风险类型的概率从 prior \(0.25\) 更新到 posterior \(0.410\)。
+
+\subsubsection{Example：色盲问题}\label{exampleux8272ux76f2ux95eeux9898}
+
+设总体中男性人数与女性人数之比为 \(r:1\)，则
+
+\[
+P(M)=\frac{r}{1+r},
+\qquad
+P(W)=\frac{1}{1+r}.
+\]
+
+若色盲事件为 \(D\)，且
+
+\[
+P(D\mid M)=p,
+\qquad
+P(D\mid W)=p^2,
+\]
+
+则随机选出的色盲者为男性的概率为
+
+\[
+P(M\mid D)
+=\frac{p\frac{r}{1+r}}
+{p\frac{r}{1+r}+p^2\frac{1}{1+r}}
+=\frac{r}{r+p}.
+\]
+
+\subsubsection{Monty Hall Problem（三门问题）}\label{monty-hall-problemux4e09ux95e8ux95eeux9898}
+
+奖品等概率地藏在帘子 \(A,B,C\) 后。先选择 \(A\)，主持人知道奖品位置，并在另外两扇帘子中打开一扇空帘；假设他打开了 \(B\)。记
+
+\[
+B^*=\{\text{host opens curtain }B\text{ and it is empty}\}.
+\]
+
+主持人的行为规则意味着
+
+\[
+P(B^*\mid A)=\frac{1}{2},
+\qquad
+P(B^*\mid B)=0,
+\qquad
+P(B^*\mid C)=1.
+\]
+
+由 Bayes' rule，
+
+\[
+P(A\mid B^*)
+=\frac{\frac12\cdot\frac13}
+{\frac12\cdot\frac13+0\cdot\frac13+1\cdot\frac13}
+=\frac13,
+\]
+
+\[
+P(C\mid B^*)=\frac23.
+\]
+
+\textbf{Conclusion}
+
+换到 \(C\) 的获奖概率为 \(2/3\)，高于坚持选择 \(A\) 的 \(1/3\)。这个结论依赖主持人``必定打开未选择的空帘，并在有两扇空帘可选时等概率选择''的行为规则。
+
+\subsubsection{Independence（独立性）}\label{independenceux72ecux7acbux6027}
+
+\textbf{Definition}
+
+事件 \(A\) 与 \(B\) 独立，当且仅当
+
+\[
+P(A\cap B)=P(A)P(B).
+\]
+
+若 \(P(B)>0\)，则等价地有
+
+\[
+P(A\mid B)=P(A),
+\]
+
+即得知 \(B\) 发生不会改变 \(A\) 的概率。
+
+\subsubsection{Independence vs.~disjointness（独立与互斥）}\label{independence-vs.-disjointnessux72ecux7acbux4e0eux4e92ux65a5}
+
+二者含义不同：
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Disjointness}：\(A\cap B=\varnothing\)，两个事件不能同时发生；
+\item
+  \textbf{Independence}：一个事件是否发生不提供关于另一个事件的信息。
+\end{itemize}
+
+若 \(A,B\) 互斥且 \(P(A)>0,P(B)>0\)，则
+
+\[
+P(A\cap B)=0<P(A)P(B),
+\]
+
+所以它们不可能独立。只有当至少一个事件概率为 \(0\) 时，互斥与独立才可能同时成立。
+
+\subsubsection{Example：四次掷骰至少出现一次 6}\label{exampleux56dbux6b21ux63b7ux9ab0ux81f3ux5c11ux51faux73b0ux4e00ux6b21-6}
+
+独立掷一枚公平骰子四次。使用 complement rule，
+
+\[
+\begin{aligned}
+P(\text{at least one six})
+&=1-P(\text{no six})\\
+&=1-\left(\frac56\right)^4\\
+&=\frac{671}{1296}\approx0.518.
+\end{aligned}
+\]
+
+更一般地，若 \(A_1,\ldots,A_n\) 相互独立，则其补事件也相互独立，从而
+
+\[
+P\left(\bigcup_{i=1}^{n}A_i\right)
+=1-P\left(\bigcap_{i=1}^{n}A_i^c\right)
+=1-\prod_{i=1}^{n}\bigl(1-P(A_i)\bigr).
+\]
+
+若 \(P(A_i)=p\)，则
+
+\[
+P\left(\bigcup_{i=1}^{n}A_i\right)=1-(1-p)^n.
+\]
+
+\subsubsection{Review}\label{review}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Conditional probability} 是在已知信息下重新校准概率模型。
+\item
+  \textbf{Multiplication rule} 计算一条联合路径；\textbf{total probability} 汇总所有互斥路径。
+\item
+  \textbf{Bayes' rule} 用观测证据把 prior 更新为 posterior。
+\item
+  \textbf{Independence} 表示信息不改变概率，不能与``互斥''混淆。
+\end{enumerate}
+
+\subsubsection{Independence and complements（独立性与补事件）}\label{independence-and-complementsux72ecux7acbux6027ux4e0eux8865ux4e8bux4ef6}
+
+\textbf{Theorem}
+
+若 \(A\) 与 \(B\) 独立，则以下三对事件也分别独立：
+
+\[
+(A,B^c),\qquad (A^c,B),\qquad (A^c,B^c).
+\]
+
+例如，利用 \(A=(A\cap B)\cup(A\cap B^c)\) 这一互斥分解，
+
+\[
+\begin{aligned}
+P(A\cap B^c)
+&=P(A)-P(A\cap B)\\
+&=P(A)-P(A)P(B)\\
+&=P(A)\bigl[1-P(B)\bigr]\\
+&=P(A)P(B^c).
+\end{aligned}
+\]
+
+其余两种情形可用相同方法证明。因此，独立事件的任意补集组合仍保持独立。
+
+\subsubsection{Pairwise vs.~mutual independence（两两独立与相互独立）}\label{pairwise-vs.-mutual-independenceux4e24ux4e24ux72ecux7acbux4e0eux76f8ux4e92ux72ecux7acb}
+
+当事件数量不少于三个时，\textbf{pairwise independence} 不足以推出 \textbf{mutual independence}。
+
+三个事件两两独立只要求
+
+\[
+P(A\cap B)=P(A)P(B),\qquad
+P(A\cap C)=P(A)P(C),\qquad
+P(B\cap C)=P(B)P(C),
+\]
+
+但不保证
+
+\[
+P(A\cap B\cap C)=P(A)P(B)P(C).
+\]
+
+\textbf{Definition}
+
+事件 \(A_1,\ldots,A_n\) 相互独立，是指对任意子集
+\(\{i_1,\ldots,i_k\}\subseteq\{1,\ldots,n\}\)，都有
+
+\[
+P\left(\bigcap_{j=1}^{k}A_{i_j}\right)
+=\prod_{j=1}^{k}P(A_{i_j}).
+\]
+
+\begin{quote}
+Mutual independence 要求所有规模至少为 \(2\) 的子事件组都满足乘法关系；只检查每一对事件并不充分。
+\end{quote}
+
+\subsubsection{Example：两两独立但不相互独立}\label{exampleux4e24ux4e24ux72ecux7acbux4f46ux4e0dux76f8ux4e92ux72ecux7acb}
+
+设
+
+\[
+S=\{a,b,c,d\},
+\]
+
+四个结果等可能，并定义
+
+\[
+A_1=\{a,b\},\qquad
+A_2=\{b,c\},\qquad
+A_3=\{a,c\}.
+\]
+
+每个事件的概率均为 \(1/2\)，任意两个事件的交集均只含一个结果，因此
+
+\[
+P(A_i\cap A_j)=\frac14
+=\frac12\cdot\frac12
+=P(A_i)P(A_j),\qquad i\ne j.
+\]
+
+所以三个事件两两独立。然而
+
+\[
+A_1\cap A_2\cap A_3=\varnothing,
+\]
+
+从而
+
+\[
+P(A_1\cap A_2\cap A_3)=0
+\ne\frac18
+=P(A_1)P(A_2)P(A_3).
+\]
+
+故它们并不相互独立。
+
+\subsubsection{Quiz check（课堂练习核对）}\label{quiz-checkux8bfeux5802ux7ec3ux4e60ux6838ux5bf9}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  盒中有 \(4\) 个红球、\(6\) 个蓝球，不放回抽取两个球：
+\end{enumerate}
+
+\[
+P(\text{first red, second blue})
+=\frac4{10}\cdot\frac6{9}
+=\frac4{15}.
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  保险分类例中，
+\end{enumerate}
+
+\[
+P(A)=0.25(0.25)+0.16(0.25)+0.10(0.50)=0.1525,
+\]
+
+\[
+P(H\mid A)=\frac{0.25(0.25)}{0.1525}
+=\frac{25}{61}\approx0.410.
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  上述 \(A_1,A_2,A_3\) 的每个两两交集概率为 \(1/4\)，但三者交集概率为 \(0\)，因此两两独立而不相互独立。
+\end{enumerate}
+
+\subsection{Random Variables（随机变量）}\label{random-variablesux968fux673aux53d8ux91cf}
+
+\textbf{Definition}
+
+随机变量 \(X\) 是从样本空间到实数集的函数：
+
+\[
+X:S\longrightarrow\mathbb{R}.
+\]
+
+\(X\) 的所有可能取值构成其值域，通常记为 \(\mathcal X\)。随机变量并不是``随机变化的数''，而是先把每个原始结果 \(s\in S\) 映射为数值 \(X(s)\)；随机性来自试验结果 \(s\) 的不确定性。
+
+\[
+s\in S
+\quad\xrightarrow{\ X\ }\quad
+X(s)\in\mathbb R.
+\]
+
+\subsubsection{Examples（随机变量示例）}\label{examplesux968fux673aux53d8ux91cfux793aux4f8b}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Random experiment & Random variable \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+掷两枚骰子 & \(X=\) 两个点数之和 \\
+抛硬币 25 次 & \(X=\) 正面出现次数 \\
+测量作物反应 & \(X=\) 单位面积产量 \\
+抽样调查 50 位选民 & \(X=\) 支持某提案的人数 \\
+\end{longtable}
+
+随机变量可以把复杂的原始结果压缩为当前分析所关心的 numerical summary。
+
+\subsubsection{Induced probabilities（随机变量诱导的概率）}\label{induced-probabilitiesux968fux673aux53d8ux91cfux8bf1ux5bfcux7684ux6982ux7387}
+
+给定 \(X:S\to\mathcal X\)，样本空间 \(S\) 上的概率会诱导出 \(X\) 取值上的概率。对 \(x\in\mathcal X\)，
+
+\[
+P(X=x)
+=P\bigl(\{s\in S:X(s)=x\}\bigr).
+\]
+
+更一般地，对 \(A\subseteq\mathcal X\)，
+
+\[
+P(X\in A)
+=P\bigl(\{s\in S:X(s)\in A\}\bigr).
+\]
+
+右侧集合是 \(A\) 在映射 \(X\) 下的原像。因此，对随机变量事件求概率，本质上仍然是在样本空间 \(S\) 上求概率。
+
+\textbf{Notation}
+
+\begin{itemize}
+\tightlist
+\item
+  大写字母 \(X,Y,Z\) 表示随机变量；
+\item
+  小写字母 \(x,y,z\) 表示随机变量的可能取值或实现值。
+\end{itemize}
+
+\subsubsection{Example：三次抛硬币}\label{exampleux4e09ux6b21ux629bux786cux5e01}
+
+公平硬币独立抛三次，令 \(X\) 为正面次数。样本空间为
+
+\[
+S=\{HHH,HHT,HTH,THH,HTT,THT,TTH,TTT\}.
+\]
+
+\(X\) 的概率分布为
+
+\begin{longtable}[]{@{}rrrrr@{}}
+\toprule\noalign{}
+\(x\) & \(0\) & \(1\) & \(2\) & \(3\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(P(X=x)\) & \(1/8\) & \(3/8\) & \(3/8\) & \(1/8\) \\
+\end{longtable}
+
+因此
+
+\[
+P(0\le X\le1)=P(X=0)+P(X=1)=\frac48,
+\]
+
+而
+
+\[
+P(0\le X<1)=P(X=0)=\frac18.
+\]
+
+对离散型随机变量，把 \(\le\) 改成 \(<\) 可能改变事件本身，不能忽略端点。
+
+\subsection{Distribution Functions（分布函数）}\label{distribution-functionsux5206ux5e03ux51fdux6570}
+
+\subsubsection{Cumulative distribution function（累积分布函数）}\label{cumulative-distribution-functionux7d2fux79efux5206ux5e03ux51fdux6570}
+
+\textbf{Definition}
+
+随机变量 \(X\) 的 cumulative distribution function（CDF）定义为
+
+\[
+F_X(x)=P(X\le x),\qquad x\in\mathbb R.
+\]
+
+CDF 在所有实数 \(x\) 上都有定义，而不只是在 \(X\) 的值域 \(\mathcal X\) 上定义。若 \(a<b\)，则
+
+\[
+P(a<X\le b)=F_X(b)-F_X(a).
+\]
+
+\subsubsection{Example：三次抛硬币的 CDF}\label{exampleux4e09ux6b21ux629bux786cux5e01ux7684-cdf}
+
+对正面次数 \(X\)，
+
+\[
+F_X(x)=
+\begin{cases}
+0, & x<0,\\
+\dfrac18, & 0\le x<1,\\
+\dfrac12, & 1\le x<2,\\
+\dfrac78, & 2\le x<3,\\
+1, & x\ge3.
+\end{cases}
+\]
+
+这是一个阶梯函数。每个取值点 \(x_0\) 处的跳跃大小等于该点的概率质量：
+
+\[
+F_X(x_0)-F_X(x_0^-)=P(X=x_0),
+\]
+
+其中
+
+\[
+F_X(x_0^-)=\lim_{x\uparrow x_0}F_X(x).
+\]
+
+CDF 在跳跃点取跳跃后的函数值，因此是 \textbf{right-continuous}（右连续）的。
+
+\subsubsection{Example：命中点到圆心的距离}\label{exampleux547dux4e2dux70b9ux5230ux5706ux5fc3ux7684ux8dddux79bb}
+
+射击命中半径为 \(R\) 的圆形靶，且命中点在靶面上按面积均匀分布。令 \(X\) 为命中点到圆心的距离。
+
+当 \(0\le x\le R\) 时，事件 \(\{X\le x\}\) 对应半径为 \(x\) 的内圆，因此
+
+\[
+F_X(x)
+=\frac{\pi x^2}{\pi R^2}
+=\frac{x^2}{R^2}.
+\]
+
+完整的 CDF 为
+
+\[
+F_X(x)=
+\begin{cases}
+0, & x<0,\\
+\dfrac{x^2}{R^2}, & 0\le x\le R,\\
+1, & x>R.
+\end{cases}
+\]
+
+\textbf{Key point}
+
+``在圆面上按面积均匀''不等于``距离 \(X\) 在 \([0,R]\) 上均匀''。半径越大的环带面积越大，因此 \(F_X(x)\) 是二次函数而不是 \(x/R\)。
+
+\subsubsection{Review}\label{review-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  两个独立事件取补后仍独立；三个及以上事件必须区分 pairwise independence 与 mutual independence。
+\item
+  随机变量是函数 \(X:S\to\mathbb R\)，它把原始结果转换为可分析的数值。
+\item
+  随机变量事件的概率由其在样本空间中的原像决定。
+\item
+  CDF \(F_X(x)=P(X\le x)\) 在整个实数轴上定义，并且右连续。
+\item
+  离散分布中，CDF 的跳跃大小恰好等于对应点的概率质量。
+\end{enumerate}

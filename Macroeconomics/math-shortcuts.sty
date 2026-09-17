@@ -1,0 +1,204 @@
+﻿% ============================================================
+%  math-shortcuts.sty — 数学公式速记宏包
+%  Raisetsu41 · 2026 Summer
+%  使用方法: \usepackage{math-shortcuts}
+% ============================================================
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{math-shortcuts}[2026/07/19 Math shortcuts for prob & macro]
+
+% ---------- 依赖 ----------
+\RequirePackage{amsmath, amssymb, mathtools, bm, bbm}
+
+% ============================================================
+%  1. 常用数集
+% ============================================================
+\newcommand{\R}{\mathbb{R}}           % 实数集
+\newcommand{\N}{\mathbb{N}}           % 自然数集
+\newcommand{\Z}{\mathbb{Z}}           % 整数集
+\newcommand{\Q}{\mathbb{Q}}           % 有理数集
+\newcommand{\C}{\mathbb{C}}           % 复数集
+\newcommand{\F}{\mathbb{F}}           % 域
+\newcommand{\I}{\mathbbm{1}}          % 示性函数
+
+% ============================================================
+%  2. 概率论核心
+% ============================================================
+
+% 期望
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Earg}[1]{\E\!\left[#1\right]}
+% 给定条件下的期望
+\newcommand{\Egiven}[2]{\E\!\left[#1 \;\middle|\; #2\right]}
+
+% 概率
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\Probarg}[1]{\Prob\!\left(#1\right)}
+
+% 方差
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\Vararg}[1]{\Var\!\left(#1\right)}
+
+% 协方差
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\Covarg}[2]{\Cov\!\left(#1,\; #2\right)}
+
+% 相关系数
+\newcommand{\Corr}{\operatorname{Corr}}
+
+% 标准差
+\newcommand{\SD}{\operatorname{SD}}
+
+% 独立同分布
+\newcommand{\iid}{\stackrel{\text{iid}}{\sim}}
+
+% 条件竖线
+\newcommand{\given}{\;\middle|\;}
+
+% 收敛
+\newcommand{\convergeP}{\xrightarrow{P}}     % 依概率收敛
+\newcommand{\convergeD}{\xrightarrow{d}}     % 依分布收敛
+\newcommand{\convergeAS}{\xrightarrow{a.s.}} % 几乎必然收敛
+
+% ============================================================
+%  3. 微分与积分
+% ============================================================
+
+% 微分算子 (直立 d)
+\newcommand{\dd}{\,\mathrm{d}}
+
+% 偏导
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+
+% 积分快捷写法
+\newcommand{\intf}[4]{\int_{#1}^{#2} #3 \dd #4}       % 定积分
+\newcommand{\intinf}[1]{\int_{-\infty}^{\infty} #1}     % 无穷积分
+
+% ============================================================
+%  4. 括号与集合
+% ============================================================
+
+% 自适应括号
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inner}[2]{\left\langle #1,\; #2 \right\rangle}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\paren}[1]{\left(#1\right)}
+% 新版 LaTeX/部分数学宏包可能已定义 \brack；此处仅在未定义时补充。
+\providecommand{\brack}[1]{\left[#1\right]}
+
+% ============================================================
+%  5. 常用分布
+% ============================================================
+
+% 正态分布
+\newcommand{\Normal}[2]{\mathcal{N}\!\paren{#1,\; #2}}
+% 二项分布
+\newcommand{\Binomial}[2]{\operatorname{Binomial}\!\paren{#1,\; #2}}
+% 泊松分布
+\newcommand{\Poisson}[1]{\operatorname{Poisson}\!\paren{#1}}
+% 指数分布
+\newcommand{\Exp}[1]{\operatorname{Exp}\!\paren{#1}}
+% 均匀分布
+\newcommand{\Uniform}[2]{\operatorname{Uniform}\!\paren{#1,\; #2}}
+% χ² 分布
+\newcommand{\Chisq}[1]{\chi^2\!\paren{#1}}
+% t 分布
+\newcommand{\Tdist}[1]{t\!\paren{#1}}
+% F 分布
+\newcommand{\Fdist}[2]{F\!\paren{#1,\; #2}}
+
+% ============================================================
+%  6. 宏观经济学常用
+% ============================================================
+
+% 增长率
+\newcommand{\growth}[1]{\Delta #1 / #1}
+
+% 百分比
+\newcommand{\pct}{\%}
+
+% 上划线 (均值)
+\newcommand{\mean}[1]{\overline{#1}}
+
+% 稳态
+\newcommand{\ssvar}[1]{#1^{*}}
+
+% ============================================================
+%  7. 矩阵与向量
+% ============================================================
+
+% 向量 (粗体)
+\newcommand{\vecb}[1]{\bm{#1}}
+
+% 转置
+\newcommand{\T}{^{\!\top}}
+
+% ============================================================
+%  8. 杂项
+% ============================================================
+
+% 服从
+\newcommand{\simiid}{\stackrel{\text{iid}}{\sim}}
+
+% 文本下标
+\newcommand{\tsub}[1]{\text{#1}}
+
+% 区分符号
+\newcommand{\indep}{\perp\!\!\!\perp}          % 独立符号
+
+
+% ============================================================
+%  9. 环境速记 — 大幅减少 \begin{}...\end{} 输入
+% ============================================================
+
+% --- 列表 ---
+\newcommand{\bi}{\begin{itemize}}    \newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}  \newcommand{\ee}{\end{enumerate}}
+
+% --- 描述列表 ---
+\newcommand{\bdesc}{\begin{description}}  \newcommand{\edesc}{\end{description}}
+
+% --- 概率论 ---
+\newcommand{\bd}{\begin{definition}}  \newcommand{\ed}{\end{definition}}
+\newcommand{\bt}{\begin{theorem}}     \newcommand{\et}{\end{theorem}}
+\newcommand{\bex}{\begin{example}}    \newcommand{\eex}{\end{example}}
+\newcommand{\brem}{\begin{remark}}    \newcommand{\erem}{\end{remark}}
+
+% --- 宏观经济学 ---
+\newcommand{\bki}{\begin{keyidea}}    \newcommand{\eki}{\end{keyidea}}
+% \bmod 是 LaTeX 内置的二元模运算符，模型环境使用不冲突的新名称。
+\newcommand{\bmodel}{\begin{model}}   \newcommand{\emodel}{\end{model}}
+\newcommand{\bsum}{\begin{summary}}   \newcommand{\esum}{\end{summary}}
+
+% --- 居中 ---
+\newcommand{\bc}{\begin{center}}      \newcommand{\ec}{\end{center}}
+
+% --- 表格 ---
+\newcommand{\btab}{\begin{tabular}}   \newcommand{\etab}{\end{tabular}}
+
+% --- \item 简写 ---
+\newcommand{\itm}{\item}
+
+% --- description 环境中的 \item 简写 ---
+\newcommand{\ditm}[1]{\item[#1]}
+
+
+% ============================================================
+%  10. 文本格式与章节速记
+% ============================================================
+
+% 粗体 / 斜体
+\newcommand{\tb}[1]{\textbf{#1}}
+\newcommand{\ti}[1]{\textit{#1}}
+
+% 章节
+\newcommand{\ssec}{\subsection}
+\newcommand{\sssec}{\subsubsection}
+
+% 标点符号
+\newcommand{\dash}{\textemdash}
+\newcommand{\dotc}{\textperiodcentered}
+
+\endinput

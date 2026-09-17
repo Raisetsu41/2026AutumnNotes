@@ -1,0 +1,56 @@
+% 共享导言区：沿用 Latex-Notes-Template 的页面、数学与定理环境设置。
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.8cm,right=2.8cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array,calc}
+\usepackage{bm,bbm}
+\usepackage{enumitem}
+\usepackage{math-shortcuts}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small \CourseName\ \dash\ 学习笔记}
+\fancyhead[R]{\small 2026 秋}
+\fancyfoot[C]{\small \dash\ \thepage\ \dash}
+\renewcommand{\headrulewidth}{0.5pt}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue,
+  pdftitle={\CourseName\ 学习笔记},
+  pdfauthor={Raisetsu41}
+}
+
+\usepackage{titling}
+\pretitle{\begin{center}\Large\bfseries}
+\posttitle{\end{center}\vspace{-0.4cm}}
+\preauthor{\begin{center}\large}
+\postauthor{\\[0.3em]\normalsize 厦门大学 \dotc\ 邹至庄经济研究院 \dotc\ 2026 秋\end{center}}
+\predate{\begin{center}}
+\postdate{\end{center}}
+
+\usepackage{tocloft}
+\renewcommand{\cftsecfont}{\bfseries}
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
+
+% Pandoc 章节转换所需的兼容命令。
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setlength{\LTpre}{0.5em}
+\setlength{\LTpost}{0.5em}
+\emergencystretch=3em
+\allowdisplaybreaks
