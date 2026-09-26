@@ -316,6 +316,7 @@ def tex_document(course: dict[str, Any], config: dict[str, Any]) -> str:
 \\documentclass[11pt,a4paper]{{ctexart}}
 
 \\newcommand{{\\CourseName}}{{{course['course_name']}}}
+\\newcommand{{\\CourseEnglishTitle}}{{{course['title_en']}}}
 \\usepackage{{xcolor}}
 \\definecolor{{CourseAccent}}{{HTML}}{{{course['accent_color']}}}
 \\definecolor{{CourseAccentDark}}{{HTML}}{{{course['accent_dark']}}}
@@ -335,7 +336,11 @@ def tex_document(course: dict[str, Any], config: dict[str, Any]) -> str:
 \\end{{center}}
 
 \\newpage
+\\begingroup
+\\setstretch{{0.95}}
+\\small
 \\tableofcontents
+\\endgroup
 \\newpage
 
 {chapter_inputs}

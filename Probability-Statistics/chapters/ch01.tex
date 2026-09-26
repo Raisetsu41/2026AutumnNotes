@@ -1,9 +1,9 @@
 % AUTO-GENERATED. Edit the Markdown sources or notes.config.json.
 % Sources: 01-Mathematics/2026-Probability-Theory/2026-09-07-Note.md; 01-Mathematics/2026-Probability-Theory/2026-09-09-Note.md; 01-Mathematics/2026-Probability-Theory/2026-09-14-Note.md; 01-Mathematics/2026-Probability-Theory/2026-09-16-Note.md; 01-Mathematics/2026-Probability-Theory/2026-09-21-Note.md
 
-\section{概率论基础}
+\section{Foundations of Probability / 概率论基础}
 
-\subsection{从随机试验到概率模型}
+\subsection{From Random Experiments to Probability Models / 从随机试验到概率模型}
 
 随机试验（random experiment）的可能结果是明确的，但试验前无法确定哪一个结果会发生。概率模型的基本结构为
 \[
@@ -16,7 +16,7 @@
 \text{概率 }P(A).
 \]
 
-\subsection{样本空间与事件}
+\subsection{Sample Spaces and Events / 样本空间与事件}
 
 \textbf{Definition}
 
@@ -44,9 +44,9 @@ A=B
 
 证明两个集合相等时，通常使用双向包含。
 
-\subsection{集合运算}
+\subsection{Set Operations / 集合运算}
 
-\subsubsection{基本运算}
+\subsubsection{Basic Operations / 基本运算}
 
 \[
 \begin{aligned}
@@ -58,7 +58,7 @@ A^c&=\{x\in S:x\notin A\}.
 
 并、交运算满足交换律、结合律和分配律。
 
-\subsubsection{De Morgan 律}
+\subsubsection{De Morgan's Laws / De Morgan 律}
 
 \[
 \begin{aligned}
@@ -77,7 +77,7 @@ A^c&=\{x\in S:x\notin A\}.
 
 其中，\(\bigcup_{i=1}^{\infty}A_i\) 表示至少属于一个 \(A_i\)；\(\bigcap_{i=1}^{\infty}A_i\) 表示属于每一个 \(A_i\)。
 
-\subsection{样本空间的分割}
+\subsection{Partitions of the Sample Space / 样本空间的分割}
 
 \textbf{Definition}
 
@@ -97,7 +97,7 @@ A collection \(A_1,A_2,\ldots\) is a \textbf{partition} of \(S\) if the sets are
 
 分割是全概率公式与 Bayes 公式的基础。
 
-\subsection{\texorpdfstring{\(\sigma\)-代数}{\textbackslash sigma-代数}}
+\subsection{\texorpdfstring{Sigma-Algebras / \(\sigma\)-代数}{Sigma-Algebras / \textbackslash sigma-代数}}
 
 \textbf{Definition}
 
@@ -118,7 +118,7 @@ A collection \(\mathcal B\) of subsets of \(S\) is a \textbf{\(\sigma\)-algebra}
 
 由 De Morgan 律，\(\sigma\)-algebra 也对可数交封闭。幂集 \(2^S\) 与平凡 \(\sigma\)-algebra \(\{\varnothing,S\}\) 都满足定义。
 
-\subsection{概率模型与概率公理}
+\subsection{Probability Models and Axioms / 概率模型与概率公理}
 
 课件对完整模型的表述是：a complete probability model is \((S,\mathcal B,P)\)，其中 \(S\) 是 sample space，\(\mathcal B\) 是 events 的集合，\(P\) 为事件赋予概率。
 
@@ -156,7 +156,7 @@ P:\mathcal B\to[0,1].
 概率公理只约束概率如何运算，并不自动确定某个随机试验应采用哪一种概率模型。具体概率仍来自建模假设或数据。
 \end{quote}
 
-\subsection{概率公理的推论}
+\subsection{Consequences of the Probability Axioms / 概率公理的推论}
 
 基本结论为
 \[
@@ -176,7 +176,7 @@ P(A\cup B)&=P(A)+P(B)-P(A\cap B).
 \end{aligned}
 \]
 
-\subsection{分割公式与概率不等式}
+\subsection{Partition Formula and Probability Inequalities / 分割公式与概率不等式}
 
 若 \(\{C_i\}\) 是 \(S\) 的一个分割，则
 \[
@@ -201,7 +201,7 @@ P\left(\bigcap_{i=1}^{n}A_i\right)
 P(A\cap B)\ge P(A)+P(B)-1.
 \]
 
-\subsection{可数样本空间上的概率构造}
+\subsection{Constructing Probabilities on Countable Sample Spaces / 可数样本空间上的概率构造}
 
 设
 \[
@@ -213,9 +213,9 @@ P(A)=\sum_{i:s_i\in A}p_i
 \]
 定义了一个概率函数，即为每个基本结果分配概率质量，再对事件中的结果求和。
 
-\subsection{组合计数 Combinatorial Analysis}
+\subsection{Combinatorial Analysis / 组合计数}
 
-\subsubsection{Basic Principle of Counting（计数基本原理）}
+\subsubsection{Basic Principle of Counting / 计数基本原理}
 
 \begin{itemize}
 \tightlist
@@ -238,7 +238,7 @@ P(A)=\sum_{i:s_i\in A}p_i
 放回 & \(n^r\) & \(\dbinom{n+r-1}{r}\) \\
 \end{longtable}
 
-\subsubsection{Stars and Bars 与 Multinomial Coefficients（隔板法与多项式系数）}
+\subsubsection{Stars and Bars and Multinomial Coefficients / 隔板法与多项式系数}
 
 隔板法（stars and bars）把 \(r\) 个相同对象分配到 \(n\) 个类别中，对应排列 \(r\) 个星号与 \(n-1\) 个隔板。
 
@@ -247,7 +247,7 @@ P(A)=\sum_{i:s_i\in A}p_i
 \frac{k!}{k_1!k_2!\cdots k_m!}.
 \]
 
-\subsection{等可能模型}
+\subsection{Equally Likely Models / 等可能模型}
 
 若有限样本空间的 \(N\) 个基本结果确实等可能，则
 \[
@@ -260,7 +260,7 @@ P(A)=\frac{|A|}{|S|}.
 只有基本结果真正等可能时，才能使用``有利结果数除以总结果数''。无序结果不会因为表达方便而自动等可能。
 \end{quote}
 
-\subsection{条件概率}
+\subsection{Conditional Probability / 条件概率}
 
 \textbf{Definition}
 
@@ -273,7 +273,7 @@ P(A\mid B)=\frac{P(A\cap B)}{P(B)}.
 
 获知 \(B\) 已发生后，有效样本空间被限制到 \(B\)；\(P(A\mid B)\) 衡量 \(B\) 中同时属于 \(A\) 的概率质量占比。
 
-\subsubsection{乘法公式（multiplication rule）}
+\subsubsection{Multiplication Rule / 乘法公式}
 
 由定义直接得到
 
@@ -291,7 +291,7 @@ P\left(A_i\,\middle|\,\bigcap_{j=1}^{i-1}A_j\right),
 
 前提是式中的条件概率均有定义。
 
-\subsubsection{Example 1：连续抽到四张 A}
+\subsubsection{Example 1: Drawing Four Aces in Succession / 例 1：连续抽到四张 A}
 
 一副 52 张的标准扑克牌不放回抽取，前四张全是 A 的概率为
 
@@ -305,7 +305,7 @@ P(\text{first four cards are aces})
 
 每次抽牌都会改变下一次的条件样本空间，因此各因子的分子、分母依次减少。
 
-\subsubsection{Example 2：不放回抽球}
+\subsubsection{Example 2: Sampling Balls without Replacement / 例 2：不放回抽球}
 
 盒中有 \(r\) 个红球和 \(b\) 个蓝球。连续不放回抽取两个球，令
 
@@ -329,7 +329,7 @@ P(B\mid A)=\frac{b}{r+b-1},
 P(A\cap B)=\frac{r}{r+b}\cdot\frac{b}{r+b-1}.
 \]
 
-\subsection{全概率公式（law of total probability）}
+\subsection{Law of Total Probability / 全概率公式}
 
 若 \(A_1,A_2,\ldots\) 构成样本空间 \(S\) 的一个 partition，即两两互斥且并集为 \(S\)，则对任意事件 \(B\)，
 
@@ -349,7 +349,7 @@ P(B)=\sum_iP(B\mid A_i)P(A_i).
 \]
 \end{quote}
 
-\subsubsection{Example 3：三个组别}
+\subsubsection{Example 3: Three Groups / 例 3：三个组别}
 
 若 \(P(B_i)=1/3\)，且 \(P(A\mid B_i)=i/6\)，\(i=1,2,3\)，则
 
@@ -362,7 +362,7 @@ P(A)
 \end{aligned}
 \]
 
-\subsection{Bayes 公式}
+\subsection{Bayes' Rule / Bayes 公式}
 
 若 \(A_1,A_2,\ldots\) 构成 partition 且 \(P(B)>0\)，则
 
@@ -397,7 +397,7 @@ Bayes' rule 把条件方向从 \(P(B\mid A_i)\) 反转为 \(P(A_i\mid B)\)：
 
 分母是由全概率公式得到的 \(P(B)\)，负责把各个未标准化权重归一化。
 
-\subsubsection{Example 4：汽车保险风险分类}
+\subsubsection{Example 4: Automobile Insurance Risk Classification / 例 4：汽车保险风险分类}
 
 客户被分为高风险 \(H\)、中风险 \(M\) 和低风险 \(L\)：
 
@@ -428,7 +428,7 @@ P(H\mid A)
 
 观察到事故后，高风险类型的概率从 prior \(0.25\) 更新到 posterior \(0.410\)。
 
-\subsubsection{Example 5：色盲问题}
+\subsubsection{Example 5: Color Blindness / 例 5：色盲问题}
 
 设总体中男性人数与女性人数之比为 \(r:1\)，则
 
@@ -457,7 +457,7 @@ P(M\mid D)
 \end{aligned}
 \]
 
-\subsection{三门问题（Monty Hall problem）}
+\subsection{Monty Hall Problem / 三门问题}
 
 奖品等概率地藏在帘子 \(A,B,C\) 后。先选择 \(A\)，主持人知道奖品位置，并在另外两扇帘子中打开一扇空帘；假设他打开了 \(B\)。记
 
@@ -494,7 +494,7 @@ P(C\mid B^*)=\frac23.
 
 换到 \(C\) 的获奖概率为 \(2/3\)，高于坚持选择 \(A\) 的 \(1/3\)。这个结论依赖主持人``必定打开未选择的空帘，并在有两扇空帘可选时等概率选择''的行为规则。
 
-\subsection{独立性}
+\subsection{Independence / 独立性}
 
 \textbf{Definition}
 
@@ -513,7 +513,7 @@ P(A\mid B)=P(A),
 
 即得知 \(B\) 发生不会改变 \(A\) 的概率。
 
-\subsubsection{独立与互斥}
+\subsubsection{Independence and Mutual Exclusivity / 独立与互斥}
 
 二者含义不同：
 
@@ -533,7 +533,7 @@ P(A\cap B)=0<P(A)P(B),
 
 所以它们不可能独立。只有当至少一个事件概率为 \(0\) 时，互斥与独立才可能同时成立。
 
-\subsubsection{Example 6：四次掷骰至少出现一次 6}
+\subsubsection{Example 6: At Least One Six in Four Die Rolls / 例 6：四次掷骰至少出现一次 6}
 
 独立掷一枚公平骰子四次。使用 complement rule，
 
@@ -562,9 +562,9 @@ P\left(\bigcup_{i=1}^{n}A_i\right)
 P\left(\bigcup_{i=1}^{n}A_i\right)=1-(1-p)^n.
 \]
 
-\subsection{独立性的进一步讨论}
+\subsection{Further Discussion of Independence / 独立性的进一步讨论}
 
-\subsubsection{独立性与补事件}
+\subsubsection{Independence and Complements / 独立性与补事件}
 
 \textbf{Theorem}
 
@@ -590,7 +590,7 @@ P(A\cap B^c)
 
 其余两种情形可用相同方法证明。因此，独立事件的任意补集组合仍保持独立。
 
-\subsubsection{两两独立与相互独立}
+\subsubsection{Pairwise and Mutual Independence / 两两独立与相互独立}
 
 当事件数量不少于三个时，\textbf{pairwise independence} 不足以推出 \textbf{mutual independence}。
 
@@ -622,7 +622,7 @@ P\left(\bigcap_{j=1}^{k}A_{i_j}\right)
 Mutual independence 要求所有规模至少为 \(2\) 的子事件组都满足乘法关系；只检查每一对事件并不充分。
 \end{quote}
 
-\subsubsection{Example 1：两两独立但不相互独立}
+\subsubsection{Example 1: Pairwise but Not Mutual Independence / 例 1：两两独立但不相互独立}
 
 设
 
@@ -668,7 +668,7 @@ P(A_1\cap A_2\cap A_3)
 
 故它们并不相互独立。
 
-\subsubsection{课堂练习核对}
+\subsubsection{Checking the In-Class Exercise / 课堂练习核对}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -711,7 +711,7 @@ P(H\mid A)
   上述 \(A_1,A_2,A_3\) 的每个两两交集概率为 \(1/4\)，但三者交集概率为 \(0\)，因此两两独立而不相互独立。
 \end{enumerate}
 
-\subsection{随机变量}
+\subsection{Random Variables / 随机变量}
 
 \textbf{Definition}
 
@@ -730,7 +730,7 @@ s\in S
 X(s)\in\mathbb R.
 \]
 
-\subsubsection{随机变量示例}
+\subsubsection{Examples of Random Variables / 随机变量示例}
 
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
@@ -747,7 +747,7 @@ Random experiment & Random variable \\
 
 随机变量可以把复杂的原始结果压缩为当前分析所关心的 numerical summary。
 
-\subsubsection{随机变量诱导的概率}
+\subsubsection{Probabilities Induced by a Random Variable / 随机变量诱导的概率}
 
 给定 \(X:S\to\mathcal X\)，样本空间 \(S\) 上的概率会诱导出 \(X\) 取值上的概率。对 \(x\in\mathcal X\)，
 
@@ -775,7 +775,7 @@ P(X\in A)
   小写字母 \(x,y,z\) 表示随机变量的可能取值或实现值。
 \end{itemize}
 
-\subsubsection{Example 2：三次抛硬币}
+\subsubsection{Example 2: Three Coin Tosses / 例 2：三次抛硬币}
 
 公平硬币独立抛三次，令 \(X\) 为正面次数。样本空间为
 
@@ -809,9 +809,9 @@ P(0\le X<1)=P(X=0)=\frac18.
 
 对离散型随机变量，把 \(\le\) 改成 \(<\) 可能改变事件本身，不能忽略端点。
 
-\subsection{分布函数}
+\subsection{Distribution Functions / 分布函数}
 
-\subsubsection{累积分布函数（CDF）}
+\subsubsection{Cumulative Distribution Function / 累积分布函数}
 
 \textbf{Definition}
 
@@ -828,7 +828,7 @@ CDF 在所有实数 \(x\) 上都有定义，而不只是在 \(X\) 的值域 \(\m
 P(a<X\le b)=F_X(b)-F_X(a).
 \]
 
-\subsubsection{Example 3：三次抛硬币的 CDF}
+\subsubsection{Example 3: CDF for Three Coin Tosses / 例 3：三次抛硬币的 CDF}
 
 对正面次数 \(X\)，
 
@@ -857,7 +857,7 @@ F_X(x_0^-)=\lim_{x\uparrow x_0}F_X(x).
 
 CDF 在跳跃点取跳跃后的函数值，因此是 \textbf{right-continuous}（右连续）的。
 
-\subsubsection{Example 4：命中点到圆心的距离}
+\subsubsection{Example 4: Distance from the Hit Point to the Center / 例 4：命中点到圆心的距离}
 
 射击命中半径为 \(R\) 的圆形靶，且命中点在靶面上按面积均匀分布。令 \(X\) 为命中点到圆心的距离。
 
@@ -886,9 +886,9 @@ F_X(x)=
 
 ``在圆面上按面积均匀''不等于``距离 \(X\) 在 \([0,R]\) 上均匀''。半径越大的环带面积越大，因此 \(F_X(x)\) 是二次函数而不是 \(x/R\)。
 
-\subsection{Cumulative Distribution Function}
+\subsection{Cumulative Distribution Function / 累积分布函数}
 
-\subsubsection{Characterization of a CDF}
+\subsubsection{Characterization of a CDF / CDF 的刻画}
 
 \textbf{Theorem}
 
@@ -924,7 +924,7 @@ F_X(x)=
   右连续表示从右侧逼近 \(x_0\) 时，CDF 回到 \(F_X(x_0)\)。
 \end{itemize}
 
-\subsubsection{Right-continuity}
+\subsubsection{Right-Continuity / 右连续性}
 
 当 \(x\downarrow x_0\) 时，事件 \(\{X\le x\}\) 单调递减到 \(\{X\le x_0\}\)。由概率测度对递减事件列的连续性，
 
@@ -936,7 +936,7 @@ F_X(x)=
 
 因此 CDF 必须右连续。它不一定左连续；左侧的跳跃恰好记录点概率。
 
-\subsubsection{Jump Probability}
+\subsubsection{Jump Probabilities / 跳跃概率}
 
 定义左极限
 
@@ -958,7 +958,7 @@ F_X(x_0)=F_X(x_0^-)
 P(X=x_0)=0.
 \]
 
-\subsubsection{Interval Probabilities}
+\subsubsection{Interval Probabilities / 区间概率}
 
 对任意随机变量，
 
@@ -984,9 +984,9 @@ P(a\le X<b)
 
 当 CDF 在 \(a,b\) 都连续时，四种开闭区间的概率相同；对离散型随机变量则必须保留端点差异。
 
-\subsection{Examples of CDFs}
+\subsection{Examples of CDFs / 累积分布函数示例}
 
-\subsubsection{几何分布的 CDF}
+\subsubsection{CDF of the Geometric Distribution / 几何分布的 CDF}
 
 令 \(X\) 表示独立 Bernoulli 试验中第一次成功所需的试验次数，单次成功概率为 \(p\)。则
 
@@ -1017,7 +1017,7 @@ F_X(x)=
 
 CDF 只在正整数处跳跃，相邻整数之间保持不变。
 
-\subsubsection{Logistic CDF}
+\subsubsection{Logistic CDF / Logistic 分布函数}
 
 考虑
 
@@ -1037,7 +1037,7 @@ F'(x)&=\frac{e^{-x}}{(1+e^{-x})^2}>0.
 
 因此它连续、严格递增，并满足 CDF 的全部条件。
 
-\subsection{Identically Distributed Random Variables}
+\subsection{Identically Distributed Random Variables / 同分布随机变量}
 
 \textbf{Definition}
 
@@ -1063,7 +1063,7 @@ for every real \(x\).
 
 一维随机变量的 CDF 唯一决定其概率分布。因此比较两个随机变量是否同分布，只需比较它们在所有实数处的 CDF。
 
-\subsubsection{Example 1：三次抛硬币中的正面数与反面数}
+\subsubsection{Example 1: Numbers of Heads and Tails in Three Tosses / 例 1：三次抛硬币中的正面数与反面数}
 
 三次公平抛硬币，令
 
@@ -1088,9 +1088,9 @@ X+Y=3,
 同分布不表示 \(X\) 与 \(Y\) 是样本空间上的同一个函数，也不表示它们相互独立。它只说明两者的边缘概率规律相同。
 \end{quote}
 
-\subsection{Probability Mass Function}
+\subsection{Probability Mass Function / 概率质量函数}
 
-\subsubsection{Definition}
+\subsubsection{Definition / 定义}
 
 \textbf{Definition}
 
@@ -1130,7 +1130,7 @@ f_X(x)&=F_X(x)-F_X(x^-).
 
 因此 PMF 的函数值正是 CDF 在相应取值点的跳跃高度。
 
-\subsubsection{Geometric PMF}
+\subsubsection{Geometric PMF / 几何分布的概率质量函数}
 
 对第一次成功等待时间，
 
@@ -1152,9 +1152,9 @@ P(a\le X\le b)
 \end{aligned}
 \]
 
-\subsection{Probability Density Function}
+\subsection{Probability Density Function / 概率密度函数}
 
-\subsubsection{Definition}
+\subsubsection{Definition / 定义}
 
 \textbf{Definition}
 
@@ -1184,7 +1184,7 @@ P(a<X\le b)
 \end{aligned}
 \]
 
-\subsubsection{Point Probabilities}
+\subsubsection{Point Probabilities / 点概率}
 
 对连续型随机变量，
 
@@ -1206,7 +1206,7 @@ P(a<X<b)
 \(f_X(x)\) 不是 \(P(X=x)\)。密度值可以大于 \(1\)；只要 \(f_X\) 非负且曲线下的总面积为 \(1\)，它就是合法密度。概率必须通过对集合积分得到。
 \end{quote}
 
-\subsubsection{Uniform Density on an Interval}
+\subsubsection{Uniform Density on an Interval / 区间上的均匀密度}
 
 若
 
@@ -1230,7 +1230,7 @@ P(c<X<d)
 
 密度为常数，因此概率与区间长度成正比。
 
-\subsection{Normalization}
+\subsection{Normalization / 归一化}
 
 \textbf{Theorem}
 
@@ -1258,7 +1258,7 @@ A function \(f\) is a valid pmf or pdf if and only if:
 \end{aligned}
 \]
 
-\subsubsection{Normalization Principle}
+\subsubsection{Normalization Principle / 归一化原则}
 
 若 \(h(x)\ge0\) 且
 
@@ -1276,7 +1276,7 @@ f(x)=\frac{h(x)}K
 
 对离散情形同理：若 \(h(x)\ge0\) 且 \(0<\sum_xh(x)<\infty\)，则用总和归一化即可得到 PMF。
 
-\subsubsection{Example 2: Finding a Normalizing Constant}
+\subsubsection{Example 2: Finding a Normalizing Constant / 例 2：求归一化常数}
 
 设
 
@@ -1309,7 +1309,7 @@ P\left(X>\frac12\right)
 \end{aligned}
 \]
 
-\subsubsection{Example 3: Logistic Density}
+\subsubsection{Example 3: Logistic Density / 例 3：Logistic 密度}
 
 由
 
@@ -1336,7 +1336,7 @@ P(a<X<b)
 
 当密度表示存在时，CDF 与 PDF 携带同一分布的全部信息；二者只是累积表示与局部密度表示的区别。
 
-\subsection{Discrete and Continuous Random Variables}
+\subsection{Discrete and Continuous Random Variables / 离散与连续随机变量}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
@@ -1364,9 +1364,9 @@ CDF 形状 & 通常为带跳跃的阶梯函数 & 若存在 PDF，则 CDF 连续�
 
 统一地说，CDF 对所有随机变量都存在；PMF 与 PDF 是适用于特定分布类型的更便捷表示。
 
-\subsection{Quiz 7 and Quiz 8}
+\subsection{Quiz 7 and Quiz 8 / 小测 7 与小测 8}
 
-\subsubsection{Quiz 7：Distribution functions}
+\subsubsection{Quiz 7: Distribution Functions / 小测 7：分布函数}
 
 \textbf{Problem 1}
 
@@ -1412,7 +1412,7 @@ x/2,&0\le x<2,\\
 P(X=2)=F(2)-F(2^-)=0.15.
 \]
 
-\subsubsection{Quiz 8：PMFs and PDFs}
+\subsubsection{Quiz 8: PMFs and PDFs / 小测 8：概率质量函数与概率密度函数}
 
 \textbf{Problem 1}
 

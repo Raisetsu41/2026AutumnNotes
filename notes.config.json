@@ -6,8 +6,9 @@
     {
       "id": "financial-economics",
       "directory": "Financial-Economics",
-      "course_name": "金融经济学 Financial Economics",
+      "course_name": "Financial Economics / 金融经济学",
       "title": "金融经济学学习笔记",
+      "title_en": "Financial Economics Study Notes",
       "pdf_name": "金融经济学.pdf",
       "accent_color": "F39C4A",
       "accent_dark": "B95816",
@@ -16,27 +17,27 @@
       "chapters": [
         {
           "file": "ch01.tex",
-          "title": "金融与财务决策",
+          "title": "Financial Decisions and the Financial System / 金融与财务决策",
           "sources": [
             {
               "path": "02-Economics/2026-Financial-Economics/2026-09-17-Note.md",
-              "until_heading": "## 7. 金融体系"
+              "until_heading": "## 7. The Financial System / 金融体系"
             }
           ]
         },
         {
           "file": "ch02.tex",
-          "title": "金融体系、激励与市场价格",
+          "title": "The Financial System, Incentives, and Market Prices / 金融体系、激励与市场价格",
           "sources": [
             {
               "path": "02-Economics/2026-Financial-Economics/2026-09-17-Note.md",
-              "from_heading": "## 7. 金融体系"
+              "from_heading": "## 7. The Financial System / 金融体系"
             }
           ]
         },
         {
           "file": "ch04.tex",
-          "title": "货币的时间价值",
+          "title": "The Time Value of Money / 货币的时间价值",
           "sources": [
             {
               "path": "02-Economics/2026-Financial-Economics/2026-09-24-Note.md"
@@ -48,8 +49,9 @@
     {
       "id": "macroeconomics",
       "directory": "Macroeconomics",
-      "course_name": "宏观经济学 Macroeconomics",
+      "course_name": "Macroeconomics / 宏观经济学",
       "title": "宏观经济学学习笔记",
+      "title_en": "Macroeconomics Study Notes",
       "pdf_name": "宏观经济学.pdf",
       "accent_color": "88A84E",
       "accent_dark": "526F2D",
@@ -58,14 +60,14 @@
       "chapters": [
         {
           "file": "ch01.tex",
-          "title": "宏观经济学的科学方法",
+          "title": "The Science of Macroeconomics / 宏观经济学的科学方法",
           "sources": [
             { "path": "02-Economics/2026-Macroeconomics/2026-09-07-Note.md" }
           ]
         },
         {
           "file": "ch02.tex",
-          "title": "宏观经济数据",
+          "title": "Macroeconomic Data / 宏观经济数据",
           "sources": [
             { "path": "02-Economics/2026-Macroeconomics/2026-09-09-Note.md" },
             { "path": "02-Economics/2026-Macroeconomics/2026-09-14-Note.md" },
@@ -74,7 +76,7 @@
         },
         {
           "file": "ch03.tex",
-          "title": "国民收入：生产、分配与需求",
+          "title": "National Income: Production, Distribution, and Demand / 国民收入：生产、分配与需求",
           "sources": [
             { "path": "02-Economics/2026-Macroeconomics/2026-09-21-Note.md" },
             { "path": "02-Economics/2026-Macroeconomics/2026-09-23-Note.md" }
@@ -85,8 +87,9 @@
     {
       "id": "probability-statistics",
       "directory": "Probability-Statistics",
-      "course_name": "概率论与数理统计 Probability and Statistics",
+      "course_name": "Probability and Statistics / 概率论与数理统计",
       "title": "概率论与数理统计学习笔记",
+      "title_en": "Probability and Statistics Study Notes",
       "pdf_name": "概率论与数理统计.pdf",
       "accent_color": "B39DDB",
       "accent_dark": "6F56A6",
@@ -95,7 +98,7 @@
       "chapters": [
         {
           "file": "ch01.tex",
-          "title": "概率论基础",
+          "title": "Foundations of Probability / 概率论基础",
           "sources": [
             { "path": "01-Mathematics/2026-Probability-Theory/2026-09-07-Note.md" },
             { "path": "01-Mathematics/2026-Probability-Theory/2026-09-09-Note.md" },
@@ -106,7 +109,7 @@
         },
         {
           "file": "ch02.tex",
-          "title": "随机变量的变换与期望",
+          "title": "Transformations of Random Variables and Expectations / 随机变量的变换与期望",
           "sources": [
             { "path": "01-Mathematics/2026-Probability-Theory/2026-09-23-Note.md" }
           ]
@@ -115,14 +118,14 @@
       "appendices": [
         {
           "file": "appendix-ps01.tex",
-          "title": "Problem Set 1",
+          "title": "Problem Set 1 / 习题集 1",
           "sources": [
             { "path": "01-Mathematics/2026-Probability-Theory/2026-09-22-Problem-Set-1.md" }
           ]
         },
         {
           "file": "appendix-ta01.tex",
-          "title": "第一次习题课",
+          "title": "TA Session 1 / 第一次习题课",
           "sources": [
             { "path": "01-Mathematics/2026-Probability-Theory/2026-09-24-TA-Session-1.md" }
           ]

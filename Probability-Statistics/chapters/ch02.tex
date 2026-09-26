@@ -1,9 +1,9 @@
 % AUTO-GENERATED. Edit the Markdown sources or notes.config.json.
 % Sources: 01-Mathematics/2026-Probability-Theory/2026-09-23-Note.md
 
-\section{随机变量的变换与期望}
+\section{Transformations of Random Variables and Expectations / 随机变量的变换与期望}
 
-\subsection{Distributions of Functions of a Random Variable}
+\subsection{Distributions of Functions of a Random Variable / 随机变量函数的分布}
 
 设随机变量 \(X\) 的分布已知，并定义
 
@@ -13,7 +13,7 @@ Y=g(X).
 
 目标是由 \(X\) 的分布求出 \(Y\) 的分布。首先要确定 \(g\) 在 \(X\) 的 support 上是否 one-to-one，再选择离散求和、CDF method 或 change of variables。
 
-\subsubsection{Discrete Transformations}
+\subsubsection{Discrete Transformations / 离散变换}
 
 \textbf{Theorem}
 
@@ -40,7 +40,7 @@ P(Y=4)&=P(X=-2)+P(X=2)=\frac25.
 
 \(g(x)=x^2\) 不是 one-to-one，所以除 \(0\) 外，每个 \(Y\) 的可能取值都要合并两个原像点的概率。
 
-\subsubsection{CDF Method}
+\subsubsection{CDF Method / 分布函数法}
 
 \textbf{Definition}
 
@@ -70,7 +70,7 @@ F_Y(y)
 f_Y(y)=F_Y'(y).
 \]
 
-\subsubsection{One-to-One Change of Variables}
+\subsubsection{One-to-One Change of Variables / 一一变量变换}
 
 \textbf{Theorem}
 
@@ -132,7 +132,7 @@ F_Y(y)
 \end{aligned}
 \]
 
-\subsubsection{Non-One-to-One Transformations}
+\subsubsection{Non-One-to-One Transformations / 非一一变换}
 
 \textbf{Theorem}
 
@@ -164,7 +164,7 @@ f_Y(y)
 \qquad y>0.
 \]
 
-\subsubsection{Normal and Chi-Square}
+\subsubsection{Normal and Chi-Square Distributions / 正态分布与卡方分布}
 
 \textbf{Theorem}
 
@@ -189,9 +189,9 @@ f_Y(y)
 
 进行变量变换时，应先写出 \(X\) 的 support，再求 \(Y=g(X)\) 的 support，并列出全部 inverse branches。所得 PMF 或 PDF 还应满足非负性和总质量为 \(1\)。
 
-\subsection{Expected Values}
+\subsection{Expected Values / 期望}
 
-\subsubsection{LOTUS}
+\subsubsection{Law of the Unconscious Statistician (LOTUS) / 无意识统计学家法则}
 
 \textbf{Theorem}
 
@@ -215,7 +215,7 @@ for continuous \(X\).
 E[X^2]=\int_{-\infty}^{\infty}x^2f_X(x)\,dx.
 \]
 
-\subsubsection{Linearity of Expectation}
+\subsubsection{Linearity of Expectation / 期望的线性性质}
 
 \textbf{Theorem}
 
@@ -236,7 +236,7 @@ E\left[\sum_{i=1}^{n}a_iX_i\right]
 
 期望的线性性只要求相关期望存在，不要求随机变量之间独立。独立性会在乘积期望或方差加法中发挥作用，但不是线性性的前提。
 
-\subsubsection{Indicator Variables}
+\subsubsection{Indicator Variables / 指示变量}
 
 \textbf{Definition}
 
@@ -271,7 +271,7 @@ E[N]=np.
 
 这里仍不需要独立性；只要每一项的边缘概率为 \(p\) 即可。
 
-\subsubsection{Variance}
+\subsubsection{Variance / 方差}
 
 \textbf{Definition}
 
@@ -292,7 +292,7 @@ The variance of \(X\) is
 
 平移常数 \(b\) 不改变离散程度，而缩放 \(a\) 会使方差乘以 \(a^2\)。
 
-\subsubsection{Mean Minimizes Squared Distance}
+\subsubsection{The Mean Minimizes Squared Distance / 均值最小化平方距离}
 
 \textbf{Theorem}
 

@@ -1,9 +1,9 @@
 % AUTO-GENERATED. Edit the Markdown sources or notes.config.json.
 % Sources: 02-Economics/2026-Financial-Economics/2026-09-24-Note.md
 
-\section{货币的时间价值}
+\section{The Time Value of Money / 货币的时间价值}
 
-\subsection{The Time Value of Money}
+\subsection{The Time Value of Money / 货币的时间价值}
 
 \textbf{Definition}
 
@@ -39,9 +39,9 @@ The \textbf{time value of money} means that cash flows received at different dat
 \(PMT\) & periodic payment & 每期等额现金流 \\
 \end{longtable}
 
-\subsection{Lump-Sum Cash Flows}
+\subsection{Lump-Sum Cash Flows / 一次性现金流}
 
-\subsubsection{Future value}
+\subsubsection{Future Value / 终值}
 
 一笔现值为 \(PV\) 的资金按每期利率 \(i\) 复利增长 \(n\) 期，终值为
 
@@ -57,7 +57,7 @@ FV=1500(1.03)^5\approx1{,}738.91.
 
 复利的关键在于每一期的利息也会进入下一期本金。
 
-\subsubsection{Present value}
+\subsubsection{Present Value / 现值}
 
 把未来现金流贴现到今天：
 
@@ -76,7 +76,7 @@ PV=\frac{40{,}000}{(1.08)^2}
 
 要求回报率越高，给定未来现金流的现值越低。
 
-\subsubsection{Solving for the interest rate}
+\subsubsection{Solving for the Interest Rate / 求利率}
 
 由
 
@@ -98,7 +98,7 @@ i=\left(\frac{FV}{PV}\right)^{1/n}-1
 i=2^{1/10}-1\approx7.18\%.
 \]
 
-\subsubsection{Solving for the number of periods}
+\subsubsection{Solving for the Number of Periods / 求期数}
 
 对终值公式取自然对数：
 
@@ -114,7 +114,7 @@ n=\frac{\ln(FV/PV)}{\ln(1+i)}
 }.
 \]
 
-\subsubsection{Rule of 72}
+\subsubsection{Rule of 72 / 72 法则}
 
 资金翻倍所需年数可近似为
 
@@ -134,7 +134,7 @@ n=\frac{\ln2}{\ln(1+i)}.
 中间步骤应保留足够精度，只在最终结果处按经济意义进行舍入。过早截断会在长期复利和大额项目中积累明显误差。
 \end{quote}
 
-\subsection{Compounding Frequency}
+\subsection{Compounding Frequency / 复利频率}
 
 设名义年利率，即 annual percentage rate 为 \(k\)，每年复利 \(m\) 次，则每期利率为
 
@@ -156,7 +156,7 @@ EFF=\left(1+\frac{k}{m}\right)^m-1
 }.
 \]
 
-\subsubsection{APR 与有效年利率}
+\subsubsection{APR and Effective Annual Rate / APR 与有效年利率}
 
 \textbf{Definition}
 
@@ -178,7 +178,7 @@ EFF=(1.015)^{12}-1\approx19.56\%.
 
 相同 APR 下，复利频率越高，EFF 越高。因此比较不同贷款或存款报价时，应使用相同期间的有效利率。
 
-\subsubsection{从有效年利率反推 APR}
+\subsubsection{Deriving APR from the Effective Annual Rate / 从有效年利率反推 APR}
 
 若目标有效年利率为 \(EFF\)，每年复利 \(m\) 次，则对应 APR 为
 
@@ -190,7 +190,7 @@ k_m=m\left[(1+EFF)^{1/m}-1\right]
 
 例如，银行希望获得 \(12\%\) 的有效年利率时，复利越频繁，对应的报价 APR 越低，但实际一年增长因子保持 \(1.12\) 不变。
 
-\subsubsection{Continuous compounding}
+\subsubsection{Continuous Compounding / 连续复利}
 
 当复利频率趋于无穷，
 
@@ -211,7 +211,7 @@ APR 为 \(18\%\) 且连续复利时，
 EFF=e^{0.18}-1\approx19.72\%.
 \]
 
-\subsection{Cash-Flow Timelines}
+\subsection{Cash-Flow Timelines / 现金流时间线}
 
 时间线将每笔现金流放在其实际发生日期。若 \(CF_t\) 表示第 \(t\) 期末现金流，则其现值为
 
@@ -246,7 +246,7 @@ PV=\frac{1{,}000}{1.10}+\frac{2{,}000}{(1.10)^2}
 =2{,}561.98.
 \]
 
-\subsubsection{Net Present Value and Internal Rate of Return}
+\subsubsection{Net Present Value and Internal Rate of Return / 净现值与内部收益率}
 
 \textbf{Definition}
 
@@ -284,7 +284,7 @@ The \textbf{internal rate of return, IRR}, is a discount rate that makes the pro
 
 对先发生一次净流出、随后只产生净流入的 conventional cash flows，若 \(IRR\) 高于 required rate of return，项目通常可以接受。但存在多次现金流符号变化时，可能出现多个 IRR 或不存在实数 IRR；互斥项目的规模和时点不同也可能使 IRR 排序与 NPV 排序冲突。因此，最终价值判断应以 NPV 为主。
 
-\subsection{Ordinary Annuities}
+\subsection{Ordinary Annuities / 普通年金}
 
 \textbf{Definition}
 
@@ -306,7 +306,7 @@ An \textbf{ordinary annuity} is a sequence of equal cash flows occurring at equa
   第一次支付发生在一期后。
 \end{itemize}
 
-\subsubsection{Present value of an annuity}
+\subsubsection{Present Value of an Annuity / 年金现值}
 
 普通年金现值为
 
@@ -332,7 +332,7 @@ PV_a=PMT\frac{1-(1+i)^{-n}}{i}
 PVIFA(i,n)=\frac{1-(1+i)^{-n}}{i}.
 \]
 
-\subsubsection{Future value of an annuity}
+\subsubsection{Future Value of an Annuity / 年金终值}
 
 普通年金在第 \(n\) 期末的终值为
 
@@ -342,7 +342,7 @@ FV_a=PMT\frac{(1+i)^n-1}{i}
 }.
 \]
 
-\subsubsection{Solving for the payment}
+\subsubsection{Solving for the Payment / 求每期付款额}
 
 给定贷款或年金现值时，每期支付额为
 
@@ -352,7 +352,7 @@ PMT=PV\frac{i}{1-(1+i)^{-n}}
 }.
 \]
 
-\subsubsection{Solving for the number of payments}
+\subsubsection{Solving for the Number of Payments / 求付款期数}
 
 由普通年金现值公式可得
 
@@ -368,7 +368,7 @@ n=-\frac{
 
 给定 \(PV\)、\(PMT\) 和 \(n\) 反求利率 \(i\) 时，一般不存在简单闭式解，需要使用数值方法或 financial calculator。
 
-\subsection{Annuities Due}
+\subsection{Annuities Due / 期初年金}
 
 \textbf{Definition}
 
@@ -398,9 +398,9 @@ FV_{ad}=FV_a(1+i)
 课件第 41 页把从 \(t=0\) 开始支付的年金标为 ``Immediate Annuity''。标准金融与精算术语通常将其称为 \textbf{annuity due}；\textbf{annuity-immediate} 通常指第一笔付款发生在一期后的普通年金。
 \end{quote}
 
-\subsection{Perpetuities}
+\subsection{Perpetuities / 永续年金}
 
-\subsubsection{Level perpetuity}
+\subsubsection{Level Perpetuity / 等额永续年金}
 
 若每期永久支付固定金额 \(PMT\)，且 \(i>0\)，则
 
@@ -412,7 +412,7 @@ PV=\frac{PMT}{i}
 
 这是普通年金现值在 \(n\to\infty\) 时的极限。
 
-\subsubsection{Growing perpetuity}
+\subsubsection{Growing Perpetuity / 增长型永续年金}
 
 若下一期的第一笔现金流为 \(PMT_1\)，以后每期按固定速度 \(g\) 永久增长，且 \(i>g\)，则
 
@@ -428,7 +428,7 @@ PV=\frac{PMT_1}{i-g}
 课件第 56 页将 \(PV=PMT_1/(i-g)\) 放在 ``Growing Annuities'' 标题下。该公式对应 \textbf{growing perpetuity}；有限期 growing annuity 还需要包含终止期 \(n\)。
 \end{quote}
 
-\subsection{Loan Amortization}
+\subsection{Loan Amortization / 贷款摊还}
 
 \textbf{Definition}
 
@@ -454,7 +454,7 @@ PMT=PV\frac{i}{1-(1+i)^{-n}}.
 
 随着未偿本金下降，利息部分逐期减少，本金部分逐期增加。
 
-\subsubsection{Mortgage example}
+\subsubsection{Mortgage Example / 抵押贷款例题}
 
 房价为 \(1{,}000{,}000\) 元，首付比例为 \(10\%\)，贷款期限为 360 个月，月利率为 \(0.5\%\)：
 
@@ -502,7 +502,7 @@ PMT
 第 62 页把首月末余额写成 \(889{,}104.04\)，正确结果约为 \(899{,}104.05\)。这是减法中的位数错误。
 \end{quote}
 
-\subsubsection{Outstanding balance after 60 payments}
+\subsubsection{Outstanding Balance after 60 Payments / 60 期后的未偿余额}
 
 支付 60 期后，还剩 300 期。第 60 期末的未偿本金等于剩余 300 笔付款在该时点的现值：
 
@@ -534,7 +534,7 @@ B_{60}
 
 前期付款中利息占比较高，是因为利息按期初未偿余额计算，而初期本金仍然很大。
 
-\subsubsection{Early repayment decisions}
+\subsubsection{Early Repayment Decisions / 提前还款决策}
 
 判断是否提前还贷时，不能把未来几十年的名义利息简单相加并称为``节省''。正确比较需要：
 
@@ -551,11 +551,11 @@ B_{60}
   比较风险调整后的净现值，而非未贴现现金总额。
 \end{enumerate}
 
-\subsection{Exchange Rates and Time Value of Money}
+\subsection{Exchange Rates and Time Value of Money / 汇率与货币时间价值}
 
 跨币种估值必须满足：现金流和贴现率使用同一种货币。可以先在各自货币下计算现值，再用估值日即期汇率换算。
 
-\subsubsection{Two projects}
+\subsubsection{Two Projects / 两个项目}
 
 美国项目 \(U\) 初始投资 \(10{,}000\) 美元，未来 5 年每年产生 \(6{,}000\) 美元，美元利率为 \(6\%\)：
 
@@ -591,7 +591,7 @@ NPV_J\approx15{,}597.98\ \text{USD}.
 第 74--75 页的日元 NPV 排版存在多余数字。按课件参数计算，应约为 \(1{,}559{,}797.84\) 日元，即 \(15{,}597.98\) 美元。
 \end{quote}
 
-\subsection{Inflation and Discounted Cash Flow}
+\subsection{Inflation and Discounted Cash Flow / 通货膨胀与贴现现金流}
 
 设名义利率为 \(i_n\)，实际利率为 \(i_r\)，通货膨胀率为 \(\pi\)。精确 Fisher relation 为
 
@@ -621,7 +621,7 @@ i_r\approx i_n-\pi.
 i_r=\frac{0.08-0.05}{1.05}\approx2.86\%.
 \]
 
-\subsubsection{Nominal consistency rule}
+\subsubsection{Nominal Consistency Rule / 名义一致性原则}
 
 估值时必须保持口径一致：
 
@@ -639,7 +639,7 @@ i_r=\frac{0.08-0.05}{1.05}\approx2.86\%.
 
 混用实际现金流与名义贴现率，或名义现金流与实际贴现率，会系统性扭曲现值。
 
-\subsubsection{Nominal security versus inflation-indexed security}
+\subsubsection{Nominal Security versus Inflation-Indexed Security / 名义证券与通胀指数证券}
 
 若名义存款收益率为 \(8\%\)，另一项资产提供 \(3\%\) 的实际收益率，则精确的 break-even inflation 满足
 
@@ -655,7 +655,7 @@ i_r=\frac{0.08-0.05}{1.05}\approx2.86\%.
 
 用 \(i_n\approx i_r+\pi\) 的近似计算时，临界通胀约为 \(5\%\)。
 
-\subsubsection{Unexpected inflation and borrowers}
+\subsubsection{Unexpected Inflation and Borrowers / 意外通胀与借款人}
 
 固定名义利率贷款的实际偿还成本为
 
@@ -665,7 +665,7 @@ i_r=\frac{0.08-0.05}{1.05}\approx2.86\%.
 
 实际通胀高于签约时预期，会降低债务的实际价值，因此有利于借款人、不利于贷款人；实际通胀低于预期则相反。
 
-\subsection{Taxes and After-Tax Returns}
+\subsection{Taxes and After-Tax Returns / 税收与税后收益}
 
 若利息收入按边际税率 \(\tau\) 纳税，且没有其他抵扣，税后利率为
 
@@ -692,7 +692,7 @@ i_{\text{taxable equivalent}}
 \frac{0.06}{1-0.20}=7.5\%.
 \]
 
-\subsection{复习要点}
+\subsection{Review Points / 复习要点}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -717,7 +717,7 @@ i_{\text{taxable equivalent}}
   税收比较应使用税后收益或 taxable-equivalent yield。
 \end{enumerate}
 
-\subsection{术语表}
+\subsection{Glossary / 术语表}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}

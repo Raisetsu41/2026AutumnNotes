@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-09-26T15:16:22+08:00",
+  "generated_at": "2026-09-26T16:32:38+08:00",
   "courses": [
     {
       "id": "financial-economics",
       "title": "金融经济学学习笔记",
       "progress": "更新至 Chapter 4",
       "file": "金融经济学.pdf",
-      "bytes": 244417,
-      "sha256": "0b40c96f8a18866e7542dfb6b32f08a81a1e6e77e744a16bac4e7fd2fe557a8b"
+      "bytes": 260498,
+      "sha256": "169385c7078db6b83c7f56a869299f2719a05be56464824c476210df5bed4d05"
     },
     {
       "id": "macroeconomics",
       "title": "宏观经济学学习笔记",
       "progress": "更新至 Chapter 3",
       "file": "宏观经济学.pdf",
-      "bytes": 9397217,
-      "sha256": "c1b7fd578489837d00efdc5b9b30021aea46b6a3a22ea670fc23672f023e4a6d"
+      "bytes": 386712,
+      "sha256": "75fde9ce4ccec18453aabb0599be77647a28bf4ccadb23403d44f40d6fbe1513"
     },
     {
       "id": "probability-statistics",
       "title": "概率论与数理统计学习笔记",
       "progress": "更新至 Chapter 2 与第一次习题课",
       "file": "概率论与数理统计.pdf",
-      "bytes": 323295,
-      "sha256": "2214f34b75e855423ed5c5c4f2d72c96ff5eed8c2d34d1ce5cd0dc59422e11ed"
+      "bytes": 338708,
+      "sha256": "5f951b4e5921e1d65b234753640fcfb48a0135a315a5fe0e33e8fd5919c3b25a"
     }
   ]
 }
