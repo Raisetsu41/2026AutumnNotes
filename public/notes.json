@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-26T15:07:12+08:00",
+  "courses": [
+    {
+      "id": "financial-economics",
+      "title": "金融经济学学习笔记",
+      "progress": "更新至 Chapter 4",
+      "file": "金融经济学.pdf",
+      "bytes": 242787,
+      "sha256": "2a2811a735152ffb8e35857f6ecd6f40ca54d4038e63909deb641eb03f287651"
+    },
+    {
+      "id": "macroeconomics",
+      "title": "宏观经济学学习笔记",
+      "progress": "更新至 Chapter 3",
+      "file": "宏观经济学.pdf",
+      "bytes": 9394714,
+      "sha256": "78b867f7a524d04c4fd984dee34dbb7e3b721846aff5313f3d0973d8fa6a97fc"
+    },
+    {
+      "id": "probability-statistics",
+      "title": "概率论与数理统计学习笔记",
+      "progress": "更新至 Chapter 2 与第一次习题课",
+      "file": "概率论与数理统计.pdf",
+      "bytes": 320431,
+      "sha256": "3adf69ab4501df1ef7f63ef981181132bb820e8b984986a2c92703a15f337d24"
+    }
+  ]
+}

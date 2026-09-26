@@ -1,0 +1,380 @@
+% AUTO-GENERATED. Edit the Markdown sources or notes.config.json.
+% Sources: 01-Mathematics/2026-Probability-Theory/2026-09-24-TA-Session-1.md
+
+\section{第一次习题课}
+
+\subsection{四类抽样计数}
+
+从 \(n\) 类对象中选取 \(k\) 个对象时，应先判断是否考虑顺序、是否允许重复：
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+抽样方式 & 是否有序 & 是否放回 & 方案数 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Permutation & 是 & 否 & \(P(n,k)=\dfrac{n!}{(n-k)!}\) \\
+Combination & 否 & 否 & \(\binom nk=\dfrac{n!}{k!(n-k)!}\) \\
+Ordered sampling with replacement & 是 & 是 & \(n^k\) \\
+Unordered sampling with replacement & 否 & 是 & \(\binom{n+k-1}{k}\) \\
+\end{longtable}
+
+最后一种情形等价于非负整数解计数：
+
+\[
+x_1+x_2+\cdots+x_n=k,
+\qquad x_i\ge 0,
+\]
+
+其解的数量为
+
+\[
+\binom{n+k-1}{n-1}=\binom{n+k-1}{k}.
+\]
+
+\subsection{\texorpdfstring{重复元素排列：\texttt{aeemrry}}{重复元素排列：aeemrry}}
+
+单词 \texttt{aeemrry} 共含 7 个字母，其中 \texttt{e} 和 \texttt{r} 各重复两次。
+
+\subsubsection{全部不同排列}
+
+如果暂时把重复字母视为不同对象，会得到 \(7!\) 种排列；交换两个 \texttt{e} 或两个 \texttt{r} 不产生新排列，因此
+
+\[
+N=\frac{7!}{2!2!}=1260.
+\]
+
+\subsubsection{\texorpdfstring{包含连续子串 \texttt{eye}}{包含连续子串 eye}}
+
+把 \texttt{eye} 看成一个整体，剩余对象为
+
+\[
+\{\text{eye},a,m,r,r\}.
+\]
+
+五个对象中两个 \texttt{r} 相同，所以
+
+\[
+N_{\text{eye}}=\frac{5!}{2!}=60.
+\]
+
+\subsubsection{\texorpdfstring{同时包含 \texttt{ram} 与 \texttt{eye}}{同时包含 ram 与 eye}}
+
+把 \texttt{ram} 和 \texttt{eye} 分别看成一个整体，剩余一个 \texttt{r}。三个对象
+
+\[
+\{\text{ram},\text{eye},r\}
+\]
+
+互不相同，因此
+
+\[
+N_{\text{ram and eye}}=3!=6.
+\]
+
+\begin{quote}
+\textbf{注：Block method}
+
+要求某些元素连续出现时，可以先把它们压缩成一个 block，再对 blocks 与剩余元素排列。仍要检查不同 blocks 之间是否共享原始元素，以及剩余元素是否重复。
+\end{quote}
+
+\subsection{恰有一个空格的占位问题}
+
+将 \(n\) 个有标号球独立、等概率地放入 \(n\) 个有标号格子。每个球有 \(n\) 种选择，因此总方案数为
+
+\[
+n^n.
+\]
+
+若恰有一个格子为空，则由于球数与格子数相同，必然出现以下占用结构：
+
+\begin{itemize}
+\tightlist
+\item
+  一个格子为空；
+\item
+  一个格子中有两个球；
+\item
+  其余 \(n-2\) 个格子各有一个球。
+\end{itemize}
+
+依次选择：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  空格子：\(n\) 种；
+\item
+  装两个球的格子：\(n-1\) 种；
+\item
+  同处一格的两个球：\(\binom n2\) 种；
+\item
+  将剩余 \(n-2\) 个球双射到剩余格子：\((n-2)!\) 种。
+\end{enumerate}
+
+故有利方案数为
+
+\[
+n(n-1)\binom n2(n-2)!
+=\binom n2n!,
+\]
+
+所求概率为
+
+\[
+\boxed{
+P=\frac{\binom n2n!}{n^n}
+=\frac{(n-1)(n-1)!}{2n^{n-2}}
+}.
+\]
+
+\begin{quote}
+\textbf{警告：易错点}
+
+只选择空格子还不够。必须同时确定哪个格子发生碰撞、哪两个球发生碰撞，以及其余球与格子的双射关系。
+\end{quote}
+
+\subsection{Stars and Bars：甜甜圈选择}
+
+商店有 20 种甜甜圈，每种供应无限，要选择 12 个。令 \(x_i\) 表示第 \(i\) 种甜甜圈的数量，则
+
+\[
+x_1+x_2+\cdots+x_{20}=12,
+\qquad x_i\ge 0.
+\]
+
+由 stars and bars，方案数为
+
+\[
+\boxed{\binom{20+12-1}{12}=\binom{31}{12}}.
+\]
+
+这里同一种甜甜圈不可区分，20 个种类可以区分，因此这是 unordered sampling with replacement。
+
+\subsection{无标号分组}
+
+\subsubsection{六人分成两个三人组}
+
+先按顺序排列 6 人，再把相邻的每 3 人视为一组。组内顺序不重要，要除以 \((3!)^2\)；两个组没有标签，还要除以 \(2!\)：
+
+\[
+\frac{6!}{(3!)^2 2!}=10.
+\]
+
+\subsubsection{六人分成三个二人组}
+
+同理，
+
+\[
+\frac{6!}{(2!)^3 3!}=15.
+\]
+
+\subsubsection{一般公式}
+
+把 \(kn\) 个不同对象分成 \(n\) 个无标号组，每组 \(k\) 个，方案数为
+
+\[
+\boxed{
+\frac{(kn)!}{(k!)^n n!}
+}.
+\]
+
+分母中的 \((k!)^n\) 消除每组内部的排列，\(n!\) 消除组与组之间的排列。
+
+\subsection{二项计数练习}
+
+\subsubsection{十次抛硬币}
+
+公平硬币独立抛掷 10 次，令 \(X\) 为正面次数，则
+
+\[
+X\sim\operatorname{Binomial}(10,1/2).
+\]
+
+恰有三次正面的概率为
+
+\[
+P(X=3)=\binom{10}{3}\left(\frac12\right)^{10}
+=\frac{15}{128}
+\approx0.1172.
+\]
+
+至多三次正面的概率为
+
+\[
+\begin{aligned}
+P(X\le3)
+&=\sum_{k=0}^{3}\binom{10}{k}\left(\frac12\right)^{10}\\
+&=\frac{1+10+45+120}{1024}\\
+&=\frac{11}{64}
+=0.171875.
+\end{aligned}
+\]
+
+\subsubsection{十人分成两支篮球队}
+
+先选择一支 5 人队得到 \(\binom{10}{5}\)，但两队没有队名，交换两队不产生新划分，因此
+
+\[
+\frac{1}{2}\binom{10}{5}=126.
+\]
+
+\subsection{条件概率与 Bayes 公式}
+
+\subsubsection{十年内从未中奖}
+
+每周中奖概率为 \(\alpha=10^{-5}\)，各周相互独立。按每年 52 周计算，十年共有 520 次购票，因此
+
+\[
+P(\text{never win})=(1-10^{-5})^{520}\approx0.9948.
+\]
+
+单次中奖概率很小并不意味着长期中奖概率可以直接写成 \(520\alpha\)；后者只是 \(P(\text{at least one win})\) 的一阶近似。
+
+\subsubsection{已知患流感，拥有狗的概率}
+
+记 \(D\) 为拥有狗，\(F\) 为患流感。已知
+
+\[
+P(D)=0.4,
+\qquad
+P(F\mid D)=0.2,
+\qquad
+P(F)=0.15.
+\]
+
+由 Bayes 公式，
+
+\[
+P(D\mid F)
+=\frac{P(F\mid D)P(D)}{P(F)}
+=\frac{0.2\times0.4}{0.15}
+=\frac{8}{15}
+\approx0.5333.
+\]
+
+\subsubsection{两枚普通硬币与一枚双面正面硬币}
+
+随机选择一枚硬币并抛掷。记 \(T\) 为选中双面正面硬币，\(H\) 为出现正面，则
+
+\[
+P(H)=P(H\mid T)P(T)+P(H\mid T^c)P(T^c)
+=1\cdot\frac13+\frac12\cdot\frac23
+=\frac23.
+\]
+
+观察到正面后，选中双面正面硬币的概率为
+
+\[
+P(T\mid H)
+=\frac{P(H\mid T)P(T)}{P(H)}
+=\frac{1/3}{2/3}
+=\frac12.
+\]
+
+\subsection{两个证明型结论}
+
+\subsubsection{在互斥分支上条件概率相同}
+
+设 \(B_1,\ldots,B_k\) 两两互斥，\(B=\bigcup_{i=1}^kB_i\)，且
+
+\[
+P(A\mid B_i)=p,
+\qquad P(B_i)>0.
+\]
+
+则
+
+\[
+\begin{aligned}
+P(A\mid B)
+&=\frac{P(A\cap B)}{P(B)}\\
+&=\frac{\sum_{i=1}^kP(A\cap B_i)}{\sum_{i=1}^kP(B_i)}\\
+&=\frac{\sum_{i=1}^kpP(B_i)}{\sum_{i=1}^kP(B_i)}\\
+&=p.
+\end{aligned}
+\]
+
+本质上，\(P(A\mid B)\) 是各个 \(P(A\mid B_i)\) 按 \(P(B_i\mid B)\) 加权得到的平均值；所有分支都等于 \(p\)，平均值仍为 \(p\)。
+
+\subsubsection{条件独立推出无条件独立的一个充分条件}
+
+设 \(C_1,\ldots,C_M\) 构成样本空间的 partition，并满足
+
+\[
+P(A\cap B\mid C_i)
+=P(A\mid C_i)P(B\mid C_i),
+\]
+
+且 \(B\) 与每个 \(C_i\) 独立，即
+
+\[
+P(B\mid C_i)=P(B).
+\]
+
+使用全概率公式：
+
+\[
+\begin{aligned}
+P(A\cap B)
+&=\sum_{i=1}^{M}P(A\cap B\mid C_i)P(C_i)\\
+&=\sum_{i=1}^{M}P(A\mid C_i)P(B\mid C_i)P(C_i)\\
+&=P(B)\sum_{i=1}^{M}P(A\mid C_i)P(C_i)\\
+&=P(A)P(B).
+\end{aligned}
+\]
+
+因此 \(A\) 与 \(B\) 独立。
+
+\begin{quote}
+\textbf{警告：条件独立并不自动推出无条件独立}
+
+上述证明依赖额外条件 \(B\perp C_i\)。如果不同分组同时影响 \(A\) 与 \(B\)，分组混合后可能产生相关性。
+\end{quote}
+
+\subsection{复习要点}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  计数题先判断对象是否可区分、结果是否有序、是否允许重复。
+\item
+  连续子串使用 block method；重复元素仍需除以内部不可区分排列数。
+\item
+  无标号分组要同时消除组内顺序和组间顺序。
+\item
+  占位问题要从 occupancy pattern 出发，列清楚空格、碰撞格、碰撞对象和剩余双射。
+\item
+  Bayes 公式的分母来自全概率公式；条件方向不能直接交换。
+\item
+  证明独立性最直接的方法是把目标化为 \(P(A\cap B)=P(A)P(B)\)。
+\end{enumerate}
+
+\subsection{术语表}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Term
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+中文
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+简要含义
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Block method & 捆绑法 & 把必须连续出现的对象视为一个整体进行排列 \\
+Stars and bars & 隔板法 & 计算非负整数解或无序有放回抽样方案数 \\
+Occupancy problem & 占位问题 & 将球分配到格子并研究各格占用数量 \\
+Unlabeled groups & 无标号分组 & 组之间没有名称，交换整组不产生新方案 \\
+Conditional independence & 条件独立 & 给定某一条件后，两个事件满足乘法分解 \\
+Partition & 分割 & 两两互斥且并集为整个样本空间的一组事件 \\
+\end{longtable}

@@ -1,0 +1,877 @@
+% AUTO-GENERATED. Edit the Markdown sources or notes.config.json.
+% Sources: 02-Economics/2026-Macroeconomics/2026-09-21-Note.md; 02-Economics/2026-Macroeconomics/2026-09-23-Note.md
+
+\section{国民收入：生产、分配与需求}
+
+\subsection{The Model}
+
+第三章建立一个用于解释长期国民收入的市场出清模型。供给侧首先回答两个问题：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  给定资本与劳动，经济能够生产多少产出？
+\item
+  产出如何在资本所有者与劳动者之间分配？
+\end{enumerate}
+
+基本变量如下：
+
+\begin{longtable}[]{@{}>{\raggedright\arraybackslash}p{0.22\linewidth}>{\raggedright\arraybackslash}p{0.34\linewidth}>{\raggedright\arraybackslash}p{0.34\linewidth}@{}}
+\toprule\noalign{}
+符号 & English term & 中文含义 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(Y\) & output & 总产出、总收入 \\
+\(K\) & capital & 资本存量，包括机器、厂房等生产资料 \\
+\(L\) & labor & 劳动投入 \\
+\(z\) 或 \(A\) & total factor productivity & 全要素生产率、技术水平 \\
+\(P\) & output price & 产品价格 \\
+\(W\) & nominal wage & 名义工资 \\
+\(R\) & nominal rental rate of capital & 资本的名义租赁价格 \\
+\end{longtable}
+
+\subsection{The Production Function}
+
+\textbf{Definition}
+
+\begin{quote}
+The \textbf{production function} identifies the amount of output \(Y\) that the economy can produce with \(K\) units of capital and \(L\) units of labor:
+\[
+Y=F(K,L).
+\]
+\end{quote}
+
+生产函数描述技术约束：在给定资本与劳动投入时，经济最多能够生产多少产出。它不是需求关系，也不是会计恒等式。
+
+\subsubsection{Hicks-neutral productivity}
+
+课堂使用
+
+\[
+Y=zF(K,L).
+\]
+
+这里 \(z\) 是 \textbf{total factor productivity, TFP}。当 \(K\)、\(L\) 不变而 \(z\) 上升时，全部投入的生产效率一起提高，产出增加：
+
+\[
+z\uparrow,\ K,L\text{ fixed}\quad\Longrightarrow\quad Y\uparrow.
+\]
+
+这种写法把技术进步放在整个生产函数之前，因此又称 Hicks-neutral technology。
+
+\subsubsection{Factor-augmenting productivity}
+
+另一种写法是
+
+\[
+Y=F(zK,L).
+\]
+
+此时 \(z\) 是 \textbf{capital-augmenting productivity}：技术进步等价于提高每单位物质资本所提供的有效资本服务。类似地，\(F(K,zL)\) 表示 labor-augmenting productivity。
+
+\begin{quote}
+\textbf{注：Productivity notation}
+
+\(zF(K,L)\) 同时提高所有要素的生产效率；\(F(zK,L)\) 只增强资本。即使符号相同，也不能把两者直接混用。
+\end{quote}
+
+\subsection{Returns to Scale}
+
+\textbf{Definition}
+
+\begin{quote}
+\textbf{Returns to scale} describe how output changes when all inputs are multiplied by the same positive factor \(a\).
+\end{quote}
+
+规模报酬研究的是资本与劳动同时按相同比例变化时，产出如何变化。对 \(a>0\)：
+
+\[
+\begin{aligned}
+F(aK,aL)&=aF(K,L) &&\text{constant returns to scale},\\
+F(aK,aL)&>aF(K,L) &&\text{increasing returns to scale},\\
+F(aK,aL)&<aF(K,L) &&\text{decreasing returns to scale}.
+\end{aligned}
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Constant returns to scale, CRS}：投入扩大 \(a\) 倍，产出恰好扩大 \(a\) 倍；
+\item
+  \textbf{Increasing returns to scale, IRS}：产出扩大超过 \(a\) 倍；
+\item
+  \textbf{Decreasing returns to scale, DRS}：产出扩大不足 \(a\) 倍。
+\end{itemize}
+
+规模报酬讨论``所有投入一起变化''，不要与``只增加一种投入时的边际报酬''混淆。
+
+\subsubsection{Cobb--Douglas production function}
+
+\[
+Y=zK^{\alpha}L^{1-\alpha},
+\qquad 0<\alpha<1.
+\]
+
+验证其规模报酬：
+
+\[
+\begin{aligned}
+z(aK)^{\alpha}(aL)^{1-\alpha}
+&=za^{\alpha}a^{1-\alpha}K^{\alpha}L^{1-\alpha}\\
+&=azK^{\alpha}L^{1-\alpha}\\
+&=aY.
+\end{aligned}
+\]
+
+因此 Cobb--Douglas 具有常数规模报酬。
+
+\subsubsection{CES production function}
+
+课堂补充的 \textbf{constant elasticity of substitution, CES} 生产函数可写为
+
+\[
+Y=z\left[\alpha K^{\rho}+(1-\alpha)L^{\rho}\right]^{1/\rho}.
+\]
+
+对全部投入同时乘以 \(a>0\)，
+
+\[
+\begin{aligned}
+F(aK,aL)
+&=z\left[\alpha(aK)^{\rho}+(1-\alpha)(aL)^{\rho}\right]^{1/\rho}\\
+&=z\left[a^{\rho}\left(\alpha K^{\rho}+(1-\alpha)L^{\rho}\right)\right]^{1/\rho}\\
+&=aF(K,L).
+\end{aligned}
+\]
+
+所以这一标准参数化同样具有 CRS。CES 强调资本与劳动之间替代弹性为常数；Cobb--Douglas 是其极限特例之一。
+
+\subsection{The Supply of Goods and Services}
+
+本章短期内先作如下供给侧假设：
+
+\[
+K=\bar K,
+\qquad
+L=\bar L,
+\]
+
+并把技术水平视为给定。于是总产出由生产函数决定：
+
+\[
+Y=F(\bar K,\bar L)=\bar Y.
+\]
+
+横线表示该变量在当前模型中是外生给定的。产出既是产品总供给，也是生产过程中形成的总收入。
+
+\subsection{Factor Prices}
+
+\textbf{Definition}
+
+\begin{quote}
+\textbf{Factor prices} are the prices per unit that firms pay for the factors of production.
+\end{quote}
+
+要素价格是企业使用一单位生产要素所支付的价格：劳动的价格是工资，资本服务的价格是租赁率。要区分名义价格与实际价格：
+
+\[
+\begin{aligned}
+\text{real wage}&=\frac{W}{P},\\
+\text{real rental rate of capital}&=\frac{R}{P}.
+\end{aligned}
+\]
+
+\(W/P\) 衡量一单位劳动报酬能够购买多少单位产出，\(R/P\) 衡量一单位资本服务报酬能够购买多少单位产出。
+
+\subsection{Profit Maximization}
+
+假设产品市场和要素市场均为竞争市场。单个企业把 \(P\)、\(W\)、\(R\) 视为给定，并选择 \(K\)、\(L\) 最大化利润：
+
+\[
+\begin{aligned}
+\max_{K,L}\ \Pi
+&=PY-WL-RK\\
+&=PzF(K,L)-WL-RK.
+\end{aligned}
+\]
+
+其中 \(PY\) 是 revenue，\(WL+RK\) 是 factor cost。内部最优解的一阶条件为
+
+\[
+\begin{aligned}
+\frac{\partial\Pi}{\partial L}
+&=PzF_L(K,L)-W=0,\\
+\frac{\partial\Pi}{\partial K}
+&=PzF_K(K,L)-R=0.
+\end{aligned}
+\]
+
+整理得到
+
+\[
+\begin{aligned}
+zF_L(K,L)&=\frac{W}{P},\\
+zF_K(K,L)&=\frac{R}{P}.
+\end{aligned}
+\]
+
+左侧分别是劳动和资本的边际产品。因此，竞争性企业使用一种要素，直到该要素的边际产品等于其实际要素价格。
+
+\subsection{Marginal Products and Factor Demand}
+
+\subsubsection{Marginal product of labor}
+
+\textbf{Definition}
+
+\begin{quote}
+The \textbf{marginal product of labor, MPL}, is the extra output the firm can produce using an additional unit of labor, holding other inputs fixed:
+\[
+MPL=F(K,L+1)-F(K,L).
+\]
+\end{quote}
+
+MPL 是资本等其他投入不变时，增加一单位劳动带来的额外产出。若把劳动视为连续变量，则
+
+\[
+MPL=\frac{\partial Y}{\partial L}.
+\]
+
+生产函数关于 \(L\) 的曲线斜率就是 MPL。
+
+\subsubsection{Marginal product of capital}
+
+\textbf{Definition}
+
+\begin{quote}
+The \textbf{marginal product of capital, MPK}, is the extra output produced by one additional unit of capital, holding labor fixed.
+\end{quote}
+
+MPK 是劳动不变时，增加一单位资本带来的额外产出。连续情形下
+
+\[
+MPK=\frac{\partial Y}{\partial K}.
+\]
+
+\subsubsection{Diminishing marginal returns}
+
+\textbf{Definition}
+
+\begin{quote}
+\textbf{Diminishing marginal returns} means that as one input is increased, holding other inputs constant, its marginal product falls.
+\end{quote}
+
+当其他投入固定时，连续增加某一种投入，每新增一单位投入所带来的产出增量逐渐下降。数学上通常写作
+
+\[
+\begin{aligned}
+\frac{\partial MPL}{\partial L}
+&=\frac{\partial^2Y}{\partial L^2}<0,\\
+\frac{\partial MPK}{\partial K}
+&=\frac{\partial^2Y}{\partial K^2}<0.
+\end{aligned}
+\]
+
+固定资本时，劳动不断增加会使每位工人可使用的机器减少，因此 MPL 下降。图形上，\(Y=F(\bar K,L)\) 关于 \(L\) 单调上升但为凹函数，而不是直线。
+
+\subsubsection{Complementarity of Inputs}
+
+板书还强调，在常见生产函数中，一种要素增加会提高另一种要素的边际产品：
+
+\[
+\begin{aligned}
+\frac{\partial MPL}{\partial K}
+&=\frac{\partial^2Y}{\partial K\partial L}>0,\\
+\frac{\partial MPK}{\partial L}
+&=\frac{\partial^2Y}{\partial L\partial K}>0.
+\end{aligned}
+\]
+
+例如给工人配备更多机器通常会提高劳动边际产品。这是要素在生产上的互补性，并不否认企业可以在一定程度上替代资本与劳动。
+
+\subsection{Equilibrium Factor Prices}
+
+企业雇佣劳动的原则是比较额外成本与额外收益：
+
+\[
+\text{cost}=\frac{W}{P},
+\qquad
+\text{benefit}=MPL.
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  若 \(MPL>W/P\)，新增劳动带来的产出价值高于成本，企业会继续雇佣；
+\item
+  若 \(MPL<W/P\)，新增劳动不划算，企业会减少劳动需求；
+\item
+  最优劳动投入满足 \(MPL=W/P\)。
+\end{itemize}
+
+当总劳动供给固定为 \(\bar L\) 时，实际工资调整到
+
+\[
+\frac{W}{P}=MPL(\bar K,\bar L),
+\]
+
+使劳动需求等于劳动供给。同理，资本市场均衡要求
+
+\[
+\frac{R}{P}=MPK(\bar K,\bar L).
+\]
+
+因此，MPL 曲线是企业的劳动需求曲线，MPK 曲线是企业的资本需求曲线。
+
+\subsection{The Neoclassical Theory of Distribution}
+
+\textbf{Definition}
+
+\begin{quote}
+The \textbf{neoclassical theory of distribution} states that each factor of production is paid its marginal product.
+\end{quote}
+
+在完全竞争和利润最大化条件下，劳动获得其边际产品对应的实际工资，资本获得其边际产品对应的实际租赁率。
+
+劳动总收入与资本总收入分别为
+
+\[
+\begin{aligned}
+\text{labor income}&=MPL\cdot L,\\
+\text{capital income}&=MPK\cdot K.
+\end{aligned}
+\]
+
+若生产函数具有 CRS，Euler 定理给出
+
+\[
+Y=MPL\cdot L+MPK\cdot K.
+\]
+
+这说明在竞争均衡中，总产出恰好被劳动收入与资本收入完全分配；若不存在其他固定成本，经济利润为零。
+
+\subsection{The Cobb--Douglas Production Function}
+
+令
+
+\[
+Y=zK^{\alpha}L^{1-\alpha},
+\qquad 0<\alpha<1.
+\]
+
+边际产品为
+
+\[
+\begin{aligned}
+MPK
+&=\frac{\partial Y}{\partial K}
+=\alpha zK^{\alpha-1}L^{1-\alpha}
+=\alpha\frac{Y}{K},\\
+MPL
+&=\frac{\partial Y}{\partial L}
+=(1-\alpha)zK^{\alpha}L^{-\alpha}
+=(1-\alpha)\frac{Y}{L}.
+\end{aligned}
+\]
+
+于是
+
+\[
+\begin{aligned}
+MPK\cdot K&=\alpha Y,\\
+MPL\cdot L&=(1-\alpha)Y.
+\end{aligned}
+\]
+
+因此 \(\alpha\) 是资本收入份额，\(1-\alpha\) 是劳动收入份额。Cobb--Douglas 的重要经验含义是：即使 \(K\)、\(L\) 与 \(Y\) 随时间变化，参数固定时两种要素的收入份额仍保持不变。
+
+同时，
+
+\[
+\begin{aligned}
+\frac{\partial MPL}{\partial L}
+&=-\alpha(1-\alpha)zK^{\alpha}L^{-\alpha-1}<0,\\
+\frac{\partial MPL}{\partial K}
+&=\alpha(1-\alpha)zK^{\alpha-1}L^{-\alpha}>0.
+\end{aligned}
+\]
+
+这同时验证了劳动边际报酬递减，以及资本增加会提高劳动边际产品。
+
+\subsection{Class Notes}
+
+\begin{quote}
+\textbf{注：利润最大化与一阶条件}
+
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio,alt={2026 09 21 board profit maximization}]{assets/e79029e55e-2026-09-21-board-profit-maximization.jpg}}
+\caption{2026 09 21 board profit maximization}
+\end{figure}
+
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio,alt={2026 09 21 board first order conditions}]{assets/8f32cc34c4-2026-09-21-board-first-order-conditions.jpg}}
+\caption{2026 09 21 board first order conditions}
+\end{figure}
+\end{quote}
+
+\begin{quote}
+\textbf{注：边际报酬、要素互补与均衡工资}
+
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio,alt={2026 09 21 board marginal products}]{assets/97fbd1a2c9-2026-09-21-board-marginal-products.jpg}}
+\caption{2026 09 21 board marginal products}
+\end{figure}
+
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio,alt={2026 09 21 board factor demand}]{assets/446220b2f4-2026-09-21-board-factor-demand.jpg}}
+\caption{2026 09 21 board factor demand}
+\end{figure}
+\end{quote}
+
+上一讲从生产函数出发，说明了总产出如何由资本、劳动和技术决定，以及竞争性要素市场如何分配收入。本讲转向需求侧，并建立产品市场与可贷资金市场的共同均衡。
+
+\subsection{Cobb--Douglas 模型的收入份额}
+
+对 Cobb--Douglas 生产函数
+
+\[
+Y=AK^{\alpha}L^{1-\alpha},
+\qquad 0<\alpha<1,
+\]
+
+边际产品为
+
+\[
+MPK=\alpha\frac{Y}{K},
+\qquad
+MPL=(1-\alpha)\frac{Y}{L}.
+\]
+
+竞争均衡中，要素获得其边际产品：
+
+\[
+\frac{R}{P}=MPK,
+\qquad
+\frac{W}{P}=MPL.
+\]
+
+于是资本收入和劳动收入分别为
+
+\[
+MPK\cdot K=\alpha Y,
+\qquad
+MPL\cdot L=(1-\alpha)Y.
+\]
+
+\(\alpha\) 和 \(1-\alpha\) 因而对应资本收入份额与劳动收入份额。这一结果把生产技术、边际产品定价和收入分配联系在一起。
+
+\subsection{Labor Productivity and Real Wages}
+
+在竞争性劳动市场中，实际工资等于劳动边际产品：
+
+\[
+\frac{W}{P}=MPL.
+\]
+
+因此，提高劳动生产率的技术进步、资本深化和人力资本积累通常会提高实际工资。课件给出的美国长期数据与这一关系大体一致：
+
+\begin{longtable}[]{@{}lrr@{}}
+\toprule\noalign{}
+时期 & 劳动生产率年均增长率 & 实际工资年均增长率 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1960--2019 & 2.1\% & 1.9\% \\
+1960--1973 & 3.1\% & 3.2\% \\
+1973--1995 & 1.5\% & 1.2\% \\
+1995--2010 & 2.8\% & 2.3\% \\
+2010--2022 & 1.1\% & 1.3\% \\
+\end{longtable}
+
+这些数据支持``长期工资增长依赖生产率增长''的理论，但两者不必在每一时期完全相等。工资统计口径、劳动者构成、福利报酬、市场势力和收入分配变化都会造成偏离。
+
+\subsection{Income Inequality}
+
+\textbf{Definition}
+
+\begin{quote}
+The \textbf{Gini coefficient} measures the dispersion of an income distribution. It ranges from zero under perfect equality to one under perfect inequality.
+\end{quote}
+
+Gini coefficient 越高，收入分配越不均等。它把整个收入分布压缩为一个数字，因此适合比较趋势，但不能说明不平等发生在分布的哪个位置，也不能单独解释原因。
+
+课件提出两种解释：
+
+\subsubsection{Skill-biased technological change}
+
+技术进步提高了 skilled workers 相对于 unskilled workers 的需求。如果教育扩张放缓，技能劳动力供给无法同步增长，技能工资溢价便会上升。
+
+这个机制可以理解为技能市场中的供需变化：
+
+\[
+\text{relative demand for skills}\uparrow
+\quad\Longrightarrow\quad
+\frac{w_{\text{skilled}}}{w_{\text{unskilled}}}\uparrow,
+\]
+
+除非技能供给以足够快的速度增加。
+
+\subsubsection{Assortative mating}
+
+高收入者更可能与高收入者组成家庭，低收入者也更可能彼此匹配。个人收入之间的正相关会放大家庭总收入差距，因此家庭层面的不平等可能上升，即使个人工资结构没有同幅变化。
+
+\subsection{Aggregate Demand in a Closed Economy}
+
+封闭经济中没有净出口，产品需求来自消费、投资和政府购买：
+
+\[
+Y=C+I+G.
+\]
+
+这一式子既是国民收入核算恒等式，也是产品市场均衡时的需求分解。
+
+\subsubsection{Consumption}
+
+可支配收入为
+
+\[
+Y-T,
+\]
+
+消费函数写作
+
+\[
+C=C(Y-T).
+\]
+
+\textbf{Definition}
+
+\begin{quote}
+The \textbf{marginal propensity to consume, MPC}, is the increase in consumption caused by a one-unit increase in disposable income.
+\end{quote}
+
+连续情形下，
+
+\[
+MPC=\frac{dC}{d(Y-T)},
+\qquad 0<MPC<1.
+\]
+
+因此可支配收入变化对消费的影响为
+
+\[
+\Delta C=MPC\cdot(\Delta Y-\Delta T).
+\]
+
+\subsubsection{Investment}
+
+投资函数写作
+
+\[
+I=I(r),
+\qquad I'(r)<0,
+\]
+
+其中 \(r\) 是实际利率。实际利率既是借款融资的成本，也是企业使用自有资金投资时放弃的机会收益。因此 \(r\) 越高，能够通过盈利性检验的投资项目越少。
+
+\subsubsection{Government Purchases and Taxes}
+
+基准模型把政府购买和税收视为外生变量：
+
+\[
+G=\bar G,
+\qquad
+T=\bar T.
+\]
+
+\(G\) 只包括政府对商品与服务的购买，不包括 transfer payments。转移支付不直接计入 GDP，但会通过家庭可支配收入和消费影响总需求。
+
+\subsection{产品市场均衡}
+
+供给侧给定资本、劳动和技术，决定总产出：
+
+\[
+Y=F(\bar K,\bar L)=\bar Y.
+\]
+
+需求侧为
+
+\[
+C(\bar Y-\bar T)+I(r)+\bar G.
+\]
+
+产品市场均衡条件是
+
+\[
+\boxed{
+\bar Y=C(\bar Y-\bar T)+I(r)+\bar G
+}.
+\]
+
+在其他变量给定时，实际利率 \(r\) 调整，使计划支出恰好等于给定产出。
+
+\subsection{Saving}
+
+\subsubsection{Private saving}
+
+私人储蓄是可支配收入中没有用于消费的部分：
+
+\[
+S_{\text{private}}=Y-T-C.
+\]
+
+\subsubsection{Public saving}
+
+公共储蓄是税收收入减去政府购买：
+
+\[
+S_{\text{public}}=T-G.
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  若 \(T>G\)，政府存在 budget surplus，公共储蓄为正；
+\item
+  若 \(T<G\)，政府存在 budget deficit，公共储蓄为负；
+\item
+  若 \(T=G\)，预算平衡，公共储蓄为零。
+\end{itemize}
+
+\subsubsection{National saving}
+
+国民储蓄等于私人储蓄与公共储蓄之和：
+
+\[
+\begin{aligned}
+S
+&=S_{\text{private}}+S_{\text{public}}\\
+&=(Y-T-C)+(T-G)\\
+&=Y-C-G.
+\end{aligned}
+\]
+
+结合封闭经济的核算恒等式 \(Y=C+I+G\)，可得
+
+\[
+\boxed{S=I}.
+\]
+
+这不是说每个家庭的储蓄都直接交给同一家企业投资，而是说整个经济的总储蓄最终为总投资提供资金。
+
+\subsection{The Market for Loanable Funds}
+
+可贷资金市场把金融体系简化为一个供求模型：
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+市场要素 & 宏观含义 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Demand for loanable funds & 投资 \(I(r)\) \\
+Supply of loanable funds & 国民储蓄 \(S\) \\
+Price & 实际利率 \(r\) \\
+\end{longtable}
+
+\subsubsection{Demand for funds}
+
+企业借款购买厂房、设备和办公楼，家庭借款购买住房，因此资金需求来自投资：
+
+\[
+I=I(r),
+\qquad I'(r)<0.
+\]
+
+投资曲线同时也是可贷资金需求曲线。
+
+\subsubsection{Supply of funds}
+
+家庭将储蓄存入银行或购买债券，政府的预算盈余也会增加可贷资金供给。基准模型假设消费只取决于可支配收入，不直接取决于利率，因此
+
+\[
+S=\bar Y-C(\bar Y-\bar T)-\bar G
+\]
+
+与 \(r\) 无关，储蓄曲线是垂直线。
+
+\subsubsection{Equilibrium}
+
+均衡条件为
+
+\[
+\boxed{S=I(r)}.
+\]
+
+实际利率调整，使希望借入的资金等于愿意提供的资金。均衡投资量由国民储蓄决定。
+
+\subsection{产品市场与可贷资金市场的等价性}
+
+从可贷资金市场均衡出发：
+
+\[
+S=I.
+\]
+
+代入 \(S=Y-C-G\)，得到
+
+\[
+Y-C-G=I.
+\]
+
+两边加上 \(C+G\)：
+
+\[
+Y=C+I+G.
+\]
+
+因此，在这一封闭经济模型中，产品市场均衡和可贷资金市场均衡是同一个条件的两种表达。
+
+\subsection{财政政策与国民储蓄}
+
+\subsubsection{Government purchases increase}
+
+若政府购买增加，税收和产出不变，则
+
+\[
+\Delta S=-\Delta G<0.
+\]
+
+储蓄供给曲线左移，均衡实际利率上升，投资下降：
+
+\[
+G\uparrow
+\quad\Longrightarrow\quad
+S\downarrow
+\quad\Longrightarrow\quad
+r\uparrow
+\quad\Longrightarrow\quad
+I\downarrow.
+\]
+
+政府购买增加挤压私人投资的现象称为 \textbf{crowding out}。
+
+\subsubsection{Taxes decrease}
+
+若减税 \(\Delta T<0\)，产出和政府购买不变，则
+
+\[
+\Delta C=-MPC\cdot\Delta T>0,
+\]
+
+从而
+
+\[
+\Delta S=-\Delta C=MPC\cdot\Delta T<0.
+\]
+
+减税不会使消费增加减税额的全部，因为家庭会储蓄其中一部分；但只要 \(MPC>0\)，国民储蓄仍会减少，利率上升并挤出投资。
+
+\subsection{Case Study：The Reagan Deficits}
+
+20 世纪 80 年代初，美国增加国防支出并大幅减税。课件将其视为国民储蓄下降、实际利率上升和投资受挤压的案例。
+
+\begin{longtable}[]{@{}lrr@{}}
+\toprule\noalign{}
+变量（占 GDP 比例，\(r\) 除外） & 1970s & 1980s \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(T-G\) & -2.2 & -3.9 \\
+\(S\) & 19.6 & 17.4 \\
+\(r\) & 1.1 & 6.3 \\
+\(I\) & 19.9 & 19.4 \\
+\end{longtable}
+
+数据方向与模型预测大体一致：预算赤字扩大，国民储蓄下降，实际利率明显上升，投资略有下降。不过，这种年代比较只能说明相关性；其他宏观冲击和货币政策也可能同时影响利率与投资。美国还是开放经济，严格的恒等式应写成 \(S-I=NX\)，因此表中的 \(S\) 与国内投资 \(I\) 不必完全相等。
+
+\subsection{Investment Demand Shocks}
+
+技术创新或 investment tax credit 会提高给定利率下的投资需求，使 \(I(r)\) 曲线右移。
+
+\subsubsection{储蓄固定}
+
+如果储蓄不随利率变化，供给曲线垂直，则投资需求增加只会提高实际利率：
+
+\[
+I^d\uparrow
+\quad\Longrightarrow\quad
+r\uparrow,
+\qquad
+I^{*}=S\text{ 不变}.
+\]
+
+更强的投资意愿通过更高利率挤出其他投资项目，均衡投资总量仍受固定储蓄约束。
+
+\subsubsection{储蓄随利率上升}
+
+若更高的实际利率鼓励储蓄，供给曲线向右上方倾斜，则投资需求增加会同时提高实际利率和均衡储蓄、投资：
+
+\[
+r\uparrow,
+\qquad
+S^{*}=I^{*}\uparrow.
+\]
+
+因此，``投资需求增加是否提高实际投资量''取决于储蓄供给对利率的反应。
+
+\subsection{复习要点}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Cobb--Douglas 模型中，参数 \(\alpha\) 和 \(1-\alpha\) 分别决定资本与劳动收入份额。
+\item
+  竞争性劳动市场给出 \(W/P=MPL\)，因此长期实际工资增长与劳动生产率增长密切相关。
+\item
+  封闭经济总需求为 \(C(Y-T)+I(r)+G\)，实际利率使总需求等于给定产出。
+\item
+  国民储蓄满足 \(S=Y-C-G=S_{\text{private}}+S_{\text{public}}\)。
+\item
+  产品市场均衡 \(Y=C+I+G\) 与可贷资金市场均衡 \(S=I\) 完全等价。
+\item
+  扩张性财政政策会降低国民储蓄，提高实际利率并挤出投资。
+\item
+  投资需求右移在固定储蓄模型中只提高利率；若储蓄随利率增加，均衡投资也会上升。
+\end{enumerate}
+
+\subsection{术语表}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Term
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+中文
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+简要含义
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Labor productivity & 劳动生产率 & 单位劳动所创造的产出 \\
+Gini coefficient & 基尼系数 & 衡量收入分布不平等程度的指标 \\
+Marginal propensity to consume & 边际消费倾向 & 可支配收入增加一单位带来的消费增量 \\
+Private saving & 私人储蓄 & 可支配收入减去消费 \\
+Public saving & 公共储蓄 & 税收减去政府购买 \\
+National saving & 国民储蓄 & 私人储蓄与公共储蓄之和 \\
+Loanable funds & 可贷资金 & 金融体系中可用于借贷和投资的资金 \\
+Budget deficit & 预算赤字 & 政府购买超过税收的差额 \\
+Crowding out & 挤出效应 & 政府赤字通过利率上升压低私人投资 \\
+Investment tax credit & 投资税收抵免 & 降低投资有效成本并提高投资需求的税收政策 \\
+\end{longtable}

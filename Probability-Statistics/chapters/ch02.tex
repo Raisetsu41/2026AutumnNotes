@@ -1,0 +1,320 @@
+% AUTO-GENERATED. Edit the Markdown sources or notes.config.json.
+% Sources: 01-Mathematics/2026-Probability-Theory/2026-09-23-Note.md
+
+\section{随机变量的变换与期望}
+
+\subsection{Distributions of Functions of a Random Variable}
+
+设随机变量 \(X\) 的分布已知，并定义
+
+\[
+Y=g(X).
+\]
+
+目标是由 \(X\) 的分布求出 \(Y\) 的分布。首先要确定 \(g\) 在 \(X\) 的 support 上是否 one-to-one，再选择离散求和、CDF method 或 change of variables。
+
+\subsubsection{Discrete Transformations}
+
+\textbf{Theorem}
+
+\begin{quote}
+If \(X\) is discrete and \(Y=g(X)\), then
+\[
+p_Y(y)=\sum_{x:g(x)=y}p_X(x).
+\]
+\end{quote}
+
+同一个 \(y\) 可能对应多个 \(x\)。因此，\(Y=y\) 的概率等于所有满足 \(g(x)=y\) 的原像点概率之和。
+
+\textbf{Example}
+
+设 \(X\) 在集合 \(\{-2,-1,0,1,2\}\) 上均匀分布，令 \(Y=X^2\)。则
+
+\[
+\begin{aligned}
+P(Y=0)&=P(X=0)=\frac15,\\
+P(Y=1)&=P(X=-1)+P(X=1)=\frac25,\\
+P(Y=4)&=P(X=-2)+P(X=2)=\frac25.
+\end{aligned}
+\]
+
+\(g(x)=x^2\) 不是 one-to-one，所以除 \(0\) 外，每个 \(Y\) 的可能取值都要合并两个原像点的概率。
+
+\subsubsection{CDF Method}
+
+\textbf{Definition}
+
+\begin{quote}
+For \(Y=g(X)\), begin with
+\[
+F_Y(y)=P(g(X)\le y).
+\]
+Rewrite the event in terms of \(X\), then differentiate when a density exists.
+\end{quote}
+
+CDF method 直接处理事件 \(\{g(X)\le y\}\)，不要求 \(g\) 单调。它特别适用于非单调变换、最大值或最小值，以及变换后 support 随 \(y\) 改变的情形。
+
+求解时需要先把不等式改写为关于 \(X\) 的事件：
+
+\[
+\begin{aligned}
+F_Y(y)
+&=P(Y\le y)\\
+&=P(g(X)\le y).
+\end{aligned}
+\]
+
+若最后得到的 \(F_Y\) 可微，则
+
+\[
+f_Y(y)=F_Y'(y).
+\]
+
+\subsubsection{One-to-One Change of Variables}
+
+\textbf{Theorem}
+
+\begin{quote}
+Suppose \(Y=g(X)\) and \(g\) is strictly monotone and differentiable. If \(x=g^{-1}(y)\), then
+\[
+f_Y(y)=f_X\bigl(g^{-1}(y)\bigr)
+\left|\frac{d}{dy}g^{-1}(y)\right|
+\]
+for \(y\) in the transformed support.
+\end{quote}
+
+绝对导数
+
+\[
+\left|\frac{d}{dy}g^{-1}(y)\right|
+\]
+
+是 one-dimensional Jacobian。它修正了变量变换对区间长度的伸缩，使变换前后的概率保持一致。
+
+\textbf{Example}
+
+设 \(U\sim\operatorname{Unif}(0,1)\)，并令
+
+\[
+Y=-\log U.
+\]
+
+由 \(u=e^{-y}\) 可知 \(Y\) 的 support 为 \(y>0\)，且
+
+\[
+\left|\frac{du}{dy}\right|=e^{-y}.
+\]
+
+因此
+
+\[
+\begin{aligned}
+f_Y(y)
+&=f_U(e^{-y})\left|\frac{du}{dy}\right|\\
+&=e^{-y},\qquad y>0.
+\end{aligned}
+\]
+
+故
+
+\[
+Y\sim\operatorname{Exp}(1).
+\]
+
+也可用 CDF method 验证：对 \(y>0\)，
+
+\[
+\begin{aligned}
+F_Y(y)
+&=P(-\log U\le y)\\
+&=P(U\ge e^{-y})\\
+&=1-e^{-y}.
+\end{aligned}
+\]
+
+\subsubsection{Non-One-to-One Transformations}
+
+\textbf{Theorem}
+
+\begin{quote}
+If \(g\) has inverse branches \(x_j(y)\), then
+\[
+f_Y(y)=\sum_j f_X\bigl(x_j(y)\bigr)
+\left|\frac{dx_j}{dy}\right|.
+\]
+\end{quote}
+
+当一个 \(y\) 对应多个原像点时，每个 inverse branch 都贡献一项，最后把这些密度相加。
+
+\textbf{Example}
+
+令 \(Y=X^2\)。对 \(y>0\)，两个 inverse branches 为
+
+\[
+x_1(y)=\sqrt y,
+\qquad
+x_2(y)=-\sqrt y.
+\]
+
+相应的 Jacobian 绝对值均为 \(1/(2\sqrt y)\)，所以
+
+\[
+f_Y(y)
+=\frac{f_X(\sqrt y)+f_X(-\sqrt y)}{2\sqrt y},
+\qquad y>0.
+\]
+
+\subsubsection{Normal and Chi-Square}
+
+\textbf{Theorem}
+
+\begin{quote}
+If \(Z\sim N(0,1)\), then
+\[
+Z^2\sim\chi_1^2.
+\]
+\end{quote}
+
+令 \(Y=Z^2\)。标准正态密度关于原点对称，因此对 \(y>0\)，
+
+\[
+\begin{aligned}
+f_Y(y)
+&=\frac{\phi(\sqrt y)+\phi(-\sqrt y)}{2\sqrt y}\\
+&=\frac{1}{\sqrt{2\pi y}}e^{-y/2}.
+\end{aligned}
+\]
+
+这正是自由度为 \(1\) 的 chi-square density。
+
+进行变量变换时，应先写出 \(X\) 的 support，再求 \(Y=g(X)\) 的 support，并列出全部 inverse branches。所得 PMF 或 PDF 还应满足非负性和总质量为 \(1\)。
+
+\subsection{Expected Values}
+
+\subsubsection{LOTUS}
+
+\textbf{Theorem}
+
+\begin{quote}
+For a function \(g\) for which the expectation exists,
+\[
+E[g(X)]=\sum_x g(x)p_X(x)
+\]
+for discrete \(X\), and
+\[
+E[g(X)]=\int_{-\infty}^{\infty}g(x)f_X(x)\,dx
+\]
+for continuous \(X\).
+\end{quote}
+
+该结论称为 \textbf{Law of the Unconscious Statistician (LOTUS)}。计算 \(E[g(X)]\) 时，可以直接对 \(X\) 的分布求和或积分，不必先推导 \(Y=g(X)\) 的分布。
+
+例如，若 \(X\) 连续且二阶矩存在，则
+
+\[
+E[X^2]=\int_{-\infty}^{\infty}x^2f_X(x)\,dx.
+\]
+
+\subsubsection{Linearity of Expectation}
+
+\textbf{Theorem}
+
+\begin{quote}
+Whenever the expectations exist,
+\[
+E[aX+bY+c]=aE[X]+bE[Y]+c.
+\]
+Independence is not required.
+\end{quote}
+
+更一般地，
+
+\[
+E\left[\sum_{i=1}^{n}a_iX_i\right]
+=\sum_{i=1}^{n}a_iE[X_i].
+\]
+
+期望的线性性只要求相关期望存在，不要求随机变量之间独立。独立性会在乘积期望或方差加法中发挥作用，但不是线性性的前提。
+
+\subsubsection{Indicator Variables}
+
+\textbf{Definition}
+
+\begin{quote}
+For an event \(A\), let \(\mathbf 1_A\) equal \(1\) when \(A\) occurs and \(0\) otherwise. Then
+\[
+E[\mathbf 1_A]=P(A).
+\]
+\end{quote}
+
+示性变量把事件是否发生转化为取值为 \(0\) 或 \(1\) 的随机变量。若
+
+\[
+N=\sum_{i=1}^{n}\mathbf 1_{\{X_i\in A\}}
+\]
+
+表示落入集合 \(A\) 的观测个数，则
+
+\[
+\begin{aligned}
+E[N]
+&=\sum_{i=1}^{n}E\left[\mathbf 1_{\{X_i\in A\}}\right]\\
+&=\sum_{i=1}^{n}P(X_i\in A).
+\end{aligned}
+\]
+
+若 \(X_1,\ldots,X_n\) identically distributed，且 \(P(X_i\in A)=p\)，则
+
+\[
+E[N]=np.
+\]
+
+这里仍不需要独立性；只要每一项的边缘概率为 \(p\) 即可。
+
+\subsubsection{Variance}
+
+\textbf{Definition}
+
+\begin{quote}
+The variance of \(X\) is
+\[
+\operatorname{Var}(X)
+=E\left[(X-E[X])^2\right]
+=E[X^2]-E[X]^2.
+\]
+\end{quote}
+
+方差度量随机变量围绕均值的平方离散程度。由定义可得
+
+\[
+\operatorname{Var}(aX+b)=a^2\operatorname{Var}(X).
+\]
+
+平移常数 \(b\) 不改变离散程度，而缩放 \(a\) 会使方差乘以 \(a^2\)。
+
+\subsubsection{Mean Minimizes Squared Distance}
+
+\textbf{Theorem}
+
+\begin{quote}
+If \(E[X^2]<\infty\), then the constant \(a\) minimizing
+\[
+E[(X-a)^2]
+\]
+is \(a=E[X]\).
+\end{quote}
+
+\textbf{Proof}
+
+令 \(\mu=E[X]\)，则
+
+\[
+\begin{aligned}
+E[(X-a)^2]
+&=E[(X-\mu+\mu-a)^2]\\
+&=E[(X-\mu)^2]+2(\mu-a)E[X-\mu]+(\mu-a)^2\\
+&=\operatorname{Var}(X)+(\mu-a)^2.
+\end{aligned}
+\]
+
+第一项与 \(a\) 无关，第二项在且仅在 \(a=\mu\) 时为 \(0\)，所以均值是平方损失下的最优常数预测。

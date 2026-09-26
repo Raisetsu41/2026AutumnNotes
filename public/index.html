@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Raisetsu41 的 2026 秋季课程笔记">
+  <title>2026 秋季课程笔记</title>
+  <style>
+    :root { color-scheme: light; --ink:#172033; --muted:#667085; --paper:#f6f7fb; --accent:#3157d5; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:Inter,"Noto Sans SC","Microsoft YaHei",sans-serif; }
+    main { width:min(1040px,calc(100% - 32px)); margin:0 auto; padding:72px 0 96px; }
+    header { max-width:720px; margin-bottom:36px; }
+    h1 { margin:0 0 12px; font-family:"Noto Serif SC","Songti SC",serif; font-size:clamp(2rem,6vw,4.6rem); line-height:1.08; }
+    header p { color:var(--muted); font-size:1.05rem; line-height:1.8; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px; }
+    .card { min-height:230px; padding:28px; background:white; border:1px solid #e4e7ec; border-radius:18px; box-shadow:0 12px 36px rgba(29,41,57,.06); display:flex; flex-direction:column; }
+    .eyebrow { margin:0; color:var(--accent); font-size:.78rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+    h2 { margin:18px 0 10px; font-size:1.35rem; }
+    .card > p:not(.eyebrow) { margin:0; color:var(--muted); }
+    a { margin-top:auto; padding-top:28px; color:var(--accent); font-weight:700; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    footer { margin-top:34px; color:var(--muted); font-size:.88rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Raisetsu41 · 2026 秋</p>
+      <h1>按章节生长的课程笔记</h1>
+      <p>内容来自本地 Obsidian Markdown，由 Pandoc 与 XeLaTeX 自动整理、编译和发布。</p>
+    </header>
+    <section class="grid">
+      <article class="card">
+      <p class="eyebrow">2026 秋</p>
+      <h2>金融经济学学习笔记</h2>
+      <p>更新至 Chapter 4</p>
+      <a href="%E9%87%91%E8%9E%8D%E7%BB%8F%E6%B5%8E%E5%AD%A6.pdf">阅读或下载 PDF</a>
+    </article><article class="card">
+      <p class="eyebrow">2026 秋</p>
+      <h2>宏观经济学学习笔记</h2>
+      <p>更新至 Chapter 3</p>
+      <a href="%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6.pdf">阅读或下载 PDF</a>
+    </article><article class="card">
+      <p class="eyebrow">2026 秋</p>
+      <h2>概率论与数理统计学习笔记</h2>
+      <p>更新至 Chapter 2 与第一次习题课</p>
+      <a href="%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1.pdf">阅读或下载 PDF</a>
+    </article>
+    </section>
+    <footer>每次发布均重新读取本地笔记；notes.json 提供文件哈希与构建信息。</footer>
+  </main>
+</body>
+</html>

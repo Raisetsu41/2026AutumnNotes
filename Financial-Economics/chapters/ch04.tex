@@ -1,0 +1,750 @@
+% AUTO-GENERATED. Edit the Markdown sources or notes.config.json.
+% Sources: 02-Economics/2026-Financial-Economics/2026-09-24-Note.md
+
+\section{货币的时间价值}
+
+\subsection{The Time Value of Money}
+
+\textbf{Definition}
+
+\begin{quote}
+The \textbf{time value of money} means that cash flows received at different dates cannot be compared or added directly without first moving them to the same date.
+\end{quote}
+
+今天的 1 元通常比未来确定收到的 1 元更有价值，原因包括：
+
+\begin{itemize}
+\tightlist
+\item
+  当前资金可以投资并产生利息；
+\item
+  通货膨胀会降低未来货币的购买力；
+\item
+  未来现金流可能存在违约或其他不确定性。
+\end{itemize}
+
+金融计算的基本原则是：先选定一个 valuation date，再通过 compounding 或 discounting 把所有现金流移动到该日期。
+
+\begin{longtable}[]{@{}>{\raggedright\arraybackslash}p{0.22\linewidth}>{\raggedright\arraybackslash}p{0.34\linewidth}>{\raggedright\arraybackslash}p{0.34\linewidth}@{}}
+\toprule\noalign{}
+符号 & English term & 中文含义 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(PV\) & present value & 现值 \\
+\(FV\) & future value & 终值 \\
+\(i\) & periodic interest rate & 每期利率 \\
+\(n\) & number of periods & 计息期数 \\
+\(PMT\) & periodic payment & 每期等额现金流 \\
+\end{longtable}
+
+\subsection{Lump-Sum Cash Flows}
+
+\subsubsection{Future value}
+
+一笔现值为 \(PV\) 的资金按每期利率 \(i\) 复利增长 \(n\) 期，终值为
+
+\[
+\boxed{FV=PV(1+i)^n}.
+\]
+
+例如，将 \(1{,}500\) 元按年利率 \(3\%\) 投资 5 年：
+
+\[
+FV=1500(1.03)^5\approx1{,}738.91.
+\]
+
+复利的关键在于每一期的利息也会进入下一期本金。
+
+\subsubsection{Present value}
+
+把未来现金流贴现到今天：
+
+\[
+\boxed{
+PV=\frac{FV}{(1+i)^n}=FV(1+i)^{-n}
+}.
+\]
+
+若两年后收到 \(40{,}000\) 元，要求回报率为 \(8\%\)，则
+
+\[
+PV=\frac{40{,}000}{(1.08)^2}
+\approx34{,}293.55.
+\]
+
+要求回报率越高，给定未来现金流的现值越低。
+
+\subsubsection{Solving for the interest rate}
+
+由
+
+\[
+FV=PV(1+i)^n
+\]
+
+可得
+
+\[
+\boxed{
+i=\left(\frac{FV}{PV}\right)^{1/n}-1
+}.
+\]
+
+例如，\(15{,}000\) 元在十年后增长为 \(30{,}000\) 元，则年化复合收益率为
+
+\[
+i=2^{1/10}-1\approx7.18\%.
+\]
+
+\subsubsection{Solving for the number of periods}
+
+对终值公式取自然对数：
+
+\[
+\ln\frac{FV}{PV}=n\ln(1+i),
+\]
+
+因此
+
+\[
+\boxed{
+n=\frac{\ln(FV/PV)}{\ln(1+i)}
+}.
+\]
+
+\subsubsection{Rule of 72}
+
+资金翻倍所需年数可近似为
+
+\[
+\text{doubling time}\approx\frac{72}{\text{annual rate in percent}}.
+\]
+
+这一规则适合快速估算，不能替代精确的复利计算。精确翻倍时间为
+
+\[
+n=\frac{\ln2}{\ln(1+i)}.
+\]
+
+\begin{quote}
+\textbf{注：Calculation precision}
+
+中间步骤应保留足够精度，只在最终结果处按经济意义进行舍入。过早截断会在长期复利和大额项目中积累明显误差。
+\end{quote}
+
+\subsection{Compounding Frequency}
+
+设名义年利率，即 annual percentage rate 为 \(k\)，每年复利 \(m\) 次，则每期利率为
+
+\[
+\frac{k}{m}.
+\]
+
+投资 1 元一年后的价值为
+
+\[
+\left(1+\frac{k}{m}\right)^m.
+\]
+
+因此有效年利率为
+
+\[
+\boxed{
+EFF=\left(1+\frac{k}{m}\right)^m-1
+}.
+\]
+
+\subsubsection{APR 与有效年利率}
+
+\textbf{Definition}
+
+\begin{quote}
+The \textbf{annual percentage rate, APR}, reports a nominal annual rate without incorporating within-year compounding into the quoted percentage.
+\end{quote}
+
+\textbf{Definition}
+
+\begin{quote}
+The \textbf{effective annual rate, EFF}, is the one-year return after accounting for all compounding within the year.
+\end{quote}
+
+例如，信用卡 APR 为 \(18\%\)，按月复利，则月利率为 \(1.5\%\)，有效年利率为
+
+\[
+EFF=(1.015)^{12}-1\approx19.56\%.
+\]
+
+相同 APR 下，复利频率越高，EFF 越高。因此比较不同贷款或存款报价时，应使用相同期间的有效利率。
+
+\subsubsection{从有效年利率反推 APR}
+
+若目标有效年利率为 \(EFF\)，每年复利 \(m\) 次，则对应 APR 为
+
+\[
+\boxed{
+k_m=m\left[(1+EFF)^{1/m}-1\right]
+}.
+\]
+
+例如，银行希望获得 \(12\%\) 的有效年利率时，复利越频繁，对应的报价 APR 越低，但实际一年增长因子保持 \(1.12\) 不变。
+
+\subsubsection{Continuous compounding}
+
+当复利频率趋于无穷，
+
+\[
+\lim_{m\to\infty}
+\left(1+\frac{k}{m}\right)^m=e^k.
+\]
+
+连续复利下的有效年利率为
+
+\[
+\boxed{EFF=e^k-1}.
+\]
+
+APR 为 \(18\%\) 且连续复利时，
+
+\[
+EFF=e^{0.18}-1\approx19.72\%.
+\]
+
+\subsection{Cash-Flow Timelines}
+
+时间线将每笔现金流放在其实际发生日期。若 \(CF_t\) 表示第 \(t\) 期末现金流，则其现值为
+
+\[
+\boxed{
+PV=\sum_{t=0}^{n}\frac{CF_t}{(1+i)^t}
+}.
+\]
+
+在第 \(n\) 期计算终值时，
+
+\[
+\boxed{
+FV_n=\sum_{t=0}^{n}CF_t(1+i)^{n-t}
+}.
+\]
+
+\textbf{Value additivity} 表明，同一估值日期上的现金流价值可以相加：
+
+\[
+PV(CF^{(1)}+CF^{(2)})
+=PV(CF^{(1)})+PV(CF^{(2)}).
+\]
+
+不同日期的名义金额不能直接相加，必须先移动到同一日期。
+
+例如，若贴现率为 \(10\%\)，第 1 期收到 \(1{,}000\) 元、第 2 期收到 \(2{,}000\) 元，则
+
+\[
+PV=\frac{1{,}000}{1.10}+\frac{2{,}000}{(1.10)^2}
+\approx909.09+1{,}652.89
+=2{,}561.98.
+\]
+
+\subsubsection{Net Present Value and Internal Rate of Return}
+
+\textbf{Definition}
+
+\begin{quote}
+The \textbf{net present value, NPV}, is the present value of all project cash inflows minus the present value of all project cash outflows.
+\end{quote}
+
+若 \(CF_0\) 已包含初始投资，则
+
+\[
+\boxed{
+NPV(r)=\sum_{t=0}^{n}\frac{CF_t}{(1+r)^t}
+}.
+\]
+
+在贴现率已经正确反映资金机会成本和项目风险时，独立项目的决策规则是：
+
+\[
+NPV>0\Rightarrow\text{accept},
+\qquad
+NPV<0\Rightarrow\text{reject}.
+\]
+
+\textbf{Definition}
+
+\begin{quote}
+The \textbf{internal rate of return, IRR}, is a discount rate that makes the project's NPV equal to zero.
+\end{quote}
+
+即 IRR 满足
+
+\[
+0=\sum_{t=0}^{n}\frac{CF_t}{(1+IRR)^t}.
+\]
+
+对先发生一次净流出、随后只产生净流入的 conventional cash flows，若 \(IRR\) 高于 required rate of return，项目通常可以接受。但存在多次现金流符号变化时，可能出现多个 IRR 或不存在实数 IRR；互斥项目的规模和时点不同也可能使 IRR 排序与 NPV 排序冲突。因此，最终价值判断应以 NPV 为主。
+
+\subsection{Ordinary Annuities}
+
+\textbf{Definition}
+
+\begin{quote}
+An \textbf{ordinary annuity} is a sequence of equal cash flows occurring at equally spaced dates, with the first payment one period from today.
+\end{quote}
+
+标准年金公式通常假设：
+
+\begin{itemize}
+\tightlist
+\item
+  每期现金流均为 \(PMT\)；
+\item
+  每期长度相同；
+\item
+  每期利率恒定为 \(i\)；
+\item
+  第一次支付发生在一期后。
+\end{itemize}
+
+\subsubsection{Present value of an annuity}
+
+普通年金现值为
+
+\[
+PV_a
+=\frac{PMT}{1+i}
++\frac{PMT}{(1+i)^2}
++\cdots
++\frac{PMT}{(1+i)^n}.
+\]
+
+利用等比数列可得
+
+\[
+\boxed{
+PV_a=PMT\frac{1-(1+i)^{-n}}{i}
+}.
+\]
+
+年金现值因子为
+
+\[
+PVIFA(i,n)=\frac{1-(1+i)^{-n}}{i}.
+\]
+
+\subsubsection{Future value of an annuity}
+
+普通年金在第 \(n\) 期末的终值为
+
+\[
+\boxed{
+FV_a=PMT\frac{(1+i)^n-1}{i}
+}.
+\]
+
+\subsubsection{Solving for the payment}
+
+给定贷款或年金现值时，每期支付额为
+
+\[
+\boxed{
+PMT=PV\frac{i}{1-(1+i)^{-n}}
+}.
+\]
+
+\subsubsection{Solving for the number of payments}
+
+由普通年金现值公式可得
+
+\[
+\boxed{
+n=-\frac{
+\ln\left(1-\dfrac{PV\cdot i}{PMT}\right)
+}{\ln(1+i)}
+},
+\]
+
+前提是 \(PMT>PV\cdot i\)。如果每期支付不超过当期利息，本金无法在有限期内还清。
+
+给定 \(PV\)、\(PMT\) 和 \(n\) 反求利率 \(i\) 时，一般不存在简单闭式解，需要使用数值方法或 financial calculator。
+
+\subsection{Annuities Due}
+
+\textbf{Definition}
+
+\begin{quote}
+An \textbf{annuity due} makes its first payment today rather than one period from today.
+\end{quote}
+
+Annuity due 的每笔现金流都比普通年金提前一期，因此
+
+\[
+\boxed{
+PV_{ad}=PV_a(1+i)
+},
+\]
+
+\[
+\boxed{
+FV_{ad}=FV_a(1+i)
+}.
+\]
+
+判断年金类型时，不要只看支付次数，要先确定第一笔支付发生在 \(t=0\) 还是 \(t=1\)。
+
+\begin{quote}
+\textbf{警告：术语核对}
+
+课件第 41 页把从 \(t=0\) 开始支付的年金标为 ``Immediate Annuity''。标准金融与精算术语通常将其称为 \textbf{annuity due}；\textbf{annuity-immediate} 通常指第一笔付款发生在一期后的普通年金。
+\end{quote}
+
+\subsection{Perpetuities}
+
+\subsubsection{Level perpetuity}
+
+若每期永久支付固定金额 \(PMT\)，且 \(i>0\)，则
+
+\[
+\boxed{
+PV=\frac{PMT}{i}
+}.
+\]
+
+这是普通年金现值在 \(n\to\infty\) 时的极限。
+
+\subsubsection{Growing perpetuity}
+
+若下一期的第一笔现金流为 \(PMT_1\)，以后每期按固定速度 \(g\) 永久增长，且 \(i>g\)，则
+
+\[
+\boxed{
+PV=\frac{PMT_1}{i-g}
+}.
+\]
+
+\begin{quote}
+\textbf{警告：术语核对}
+
+课件第 56 页将 \(PV=PMT_1/(i-g)\) 放在 ``Growing Annuities'' 标题下。该公式对应 \textbf{growing perpetuity}；有限期 growing annuity 还需要包含终止期 \(n\)。
+\end{quote}
+
+\subsection{Loan Amortization}
+
+\textbf{Definition}
+
+\begin{quote}
+\textbf{Loan amortization} is the gradual repayment of loan principal through a sequence of periodic payments containing both interest and principal.
+\end{quote}
+
+固定利率、等额支付贷款的每期还款额为
+
+\[
+PMT=PV\frac{i}{1-(1+i)^{-n}}.
+\]
+
+每一期均满足
+
+\[
+\begin{aligned}
+\text{interest}_t&=i\times\text{balance}_{t-1},\\
+\text{principal}_t&=PMT-\text{interest}_t,\\
+\text{balance}_t&=\text{balance}_{t-1}-\text{principal}_t.
+\end{aligned}
+\]
+
+随着未偿本金下降，利息部分逐期减少，本金部分逐期增加。
+
+\subsubsection{Mortgage example}
+
+房价为 \(1{,}000{,}000\) 元，首付比例为 \(10\%\)，贷款期限为 360 个月，月利率为 \(0.5\%\)：
+
+\[
+PV=1{,}000{,}000(1-0.10)=900{,}000.
+\]
+
+Three discount points 等于贷款额的 \(3\%\)：
+
+\[
+\text{points}=900{,}000\times0.03=27{,}000.
+\]
+
+借款人初始实际获得的净资金为
+
+\[
+900{,}000-27{,}000=873{,}000,
+\]
+
+但仍按 \(900{,}000\) 的名义本金偿还贷款，因此 points 会提高贷款的有效融资成本。
+
+每月还款额为
+
+\[
+\begin{aligned}
+PMT
+&=900{,}000\frac{0.005}{1-(1.005)^{-360}}\\
+&\approx5{,}395.95.
+\end{aligned}
+\]
+
+第一个月：
+
+\[
+\begin{aligned}
+\text{interest}_1&=900{,}000\times0.005=4{,}500,\\
+\text{principal}_1&=5{,}395.95-4{,}500=895.95,\\
+\text{balance}_1&=900{,}000-895.95=899{,}104.05.
+\end{aligned}
+\]
+
+\begin{quote}
+\textbf{警告：课件数值核对}
+
+第 62 页把首月末余额写成 \(889{,}104.04\)，正确结果约为 \(899{,}104.05\)。这是减法中的位数错误。
+\end{quote}
+
+\subsubsection{Outstanding balance after 60 payments}
+
+支付 60 期后，还剩 300 期。第 60 期末的未偿本金等于剩余 300 笔付款在该时点的现值：
+
+\[
+\begin{aligned}
+B_{60}
+&=PMT\frac{1-(1.005)^{-300}}{0.005}\\
+&\approx837{,}489.21.
+\end{aligned}
+\]
+
+前 60 期总付款约为
+
+\[
+5{,}395.9547\times60\approx323{,}757.28.
+\]
+
+其中本金减少
+
+\[
+900{,}000-837{,}489.21=62{,}510.79,
+\]
+
+利息支出约为
+
+\[
+323{,}757.28-62{,}510.79=261{,}246.49.
+\]
+
+前期付款中利息占比较高，是因为利息按期初未偿余额计算，而初期本金仍然很大。
+
+\subsubsection{Early repayment decisions}
+
+判断是否提前还贷时，不能把未来几十年的名义利息简单相加并称为``节省''。正确比较需要：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  把提前还款与继续还款的现金流放在时间线上；
+\item
+  使用与风险相匹配的贴现率计算现值；
+\item
+  考虑税收、提前还款费用和替代投资机会；
+\item
+  比较风险调整后的净现值，而非未贴现现金总额。
+\end{enumerate}
+
+\subsection{Exchange Rates and Time Value of Money}
+
+跨币种估值必须满足：现金流和贴现率使用同一种货币。可以先在各自货币下计算现值，再用估值日即期汇率换算。
+
+\subsubsection{Two projects}
+
+美国项目 \(U\) 初始投资 \(10{,}000\) 美元，未来 5 年每年产生 \(6{,}000\) 美元，美元利率为 \(6\%\)：
+
+\[
+\begin{aligned}
+NPV_U
+&=6{,}000\frac{1-(1.06)^{-5}}{0.06}-10{,}000\\
+&\approx15{,}274.18\ \text{USD}.
+\end{aligned}
+\]
+
+日本项目 \(J\) 初始投资 \(1{,}000{,}000\) 日元，未来 5 年每年产生 \(575{,}000\) 日元，日元利率为 \(4\%\)：
+
+\[
+\begin{aligned}
+NPV_J
+&=575{,}000\frac{1-(1.04)^{-5}}{0.04}-1{,}000{,}000\\
+&\approx1{,}559{,}797.84\ \text{JPY}.
+\end{aligned}
+\]
+
+若即期汇率为 \(0.01\) USD/JPY，则
+
+\[
+NPV_J\approx15{,}597.98\ \text{USD}.
+\]
+
+在忽略汇率风险和其他差异的条件下，项目 \(J\) 的现值略高。但如果未来现金流最终要换成美元，仍需分析汇率风险或使用远期合约套期保值。
+
+\begin{quote}
+\textbf{警告：课件数值核对}
+
+第 74--75 页的日元 NPV 排版存在多余数字。按课件参数计算，应约为 \(1{,}559{,}797.84\) 日元，即 \(15{,}597.98\) 美元。
+\end{quote}
+
+\subsection{Inflation and Discounted Cash Flow}
+
+设名义利率为 \(i_n\)，实际利率为 \(i_r\)，通货膨胀率为 \(\pi\)。精确 Fisher relation 为
+
+\[
+\boxed{
+1+i_n=(1+i_r)(1+\pi)
+}.
+\]
+
+因此
+
+\[
+\boxed{
+i_r=\frac{i_n-\pi}{1+\pi}
+}.
+\]
+
+低通胀下常用近似为
+
+\[
+i_r\approx i_n-\pi.
+\]
+
+若名义利率为 \(8\%\)、通胀率为 \(5\%\)，则
+
+\[
+i_r=\frac{0.08-0.05}{1.05}\approx2.86\%.
+\]
+
+\subsubsection{Nominal consistency rule}
+
+估值时必须保持口径一致：
+
+\[
+\text{nominal cash flows}
+\longleftrightarrow
+\text{nominal discount rate},
+\]
+
+\[
+\text{real cash flows}
+\longleftrightarrow
+\text{real discount rate}.
+\]
+
+混用实际现金流与名义贴现率，或名义现金流与实际贴现率，会系统性扭曲现值。
+
+\subsubsection{Nominal security versus inflation-indexed security}
+
+若名义存款收益率为 \(8\%\)，另一项资产提供 \(3\%\) 的实际收益率，则精确的 break-even inflation 满足
+
+\[
+1.08=1.03(1+\pi^*).
+\]
+
+因此
+
+\[
+\pi^*=\frac{1.08}{1.03}-1\approx4.85\%.
+\]
+
+用 \(i_n\approx i_r+\pi\) 的近似计算时，临界通胀约为 \(5\%\)。
+
+\subsubsection{Unexpected inflation and borrowers}
+
+固定名义利率贷款的实际偿还成本为
+
+\[
+\frac{1+i_n}{1+\pi}-1.
+\]
+
+实际通胀高于签约时预期，会降低债务的实际价值，因此有利于借款人、不利于贷款人；实际通胀低于预期则相反。
+
+\subsection{Taxes and After-Tax Returns}
+
+若利息收入按边际税率 \(\tau\) 纳税，且没有其他抵扣，税后利率为
+
+\[
+\boxed{
+i_{\text{after-tax}}=i_{\text{before-tax}}(1-\tau)
+}.
+\]
+
+投资决策应最大化风险调整后的税后收益，而不是单纯最小化纳税额。
+
+如果免税债券收益率为 \(i_m\)，应税债券的税前收益率至少要达到
+
+\[
+\boxed{
+i_{\text{taxable equivalent}}
+=\frac{i_m}{1-\tau}
+}.
+\]
+
+例如，免税债券收益率为 \(6\%\)，边际税率为 \(20\%\)，则无差异的应税收益率为
+
+\[
+\frac{0.06}{1-0.20}=7.5\%.
+\]
+
+\subsection{复习要点}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  不同日期的现金流必须先移动到同一估值日期，才能比较或相加。
+\item
+  APR 不包含年内复利效果；比较报价时应换算为 EFF。
+\item
+  普通年金第一笔付款在一期后，annuity due 第一笔付款在今天，后者价值是前者的 \((1+i)\) 倍。
+\item
+  永续年金公式要求 \(i>0\)；增长永续年金公式要求 \(i>g\)。
+\item
+  贷款还款额由利息与本金构成，未偿本金等于剩余付款在当前时点的现值。
+\item
+  提前还贷不能依据未贴现利息总额判断，必须比较两套现金流的现值与机会成本。
+\item
+  跨币种估值时，现金流与贴现率必须使用相同货币。
+\item
+  名义现金流对应名义贴现率，实际现金流对应实际贴现率。
+\item
+  税收比较应使用税后收益或 taxable-equivalent yield。
+\end{enumerate}
+
+\subsection{术语表}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Term
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+中文
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+简要含义
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Compounding & 复利 & 将利息计入本金并继续产生利息 \\
+Discounting & 贴现 & 将未来现金流换算为当前价值 \\
+Annual percentage rate & 名义年利率 & 未把年内复利效果计入报价百分比的年利率 \\
+Effective annual rate & 有效年利率 & 计入一年内全部复利后的实际年增长率 \\
+Ordinary annuity & 普通年金 & 第一次付款发生在一期后的等额现金流序列 \\
+Annuity due & 期初年金 & 第一次付款发生在今天的等额现金流序列 \\
+Perpetuity & 永续年金 & 无限期持续支付的现金流序列 \\
+Growing perpetuity & 增长永续年金 & 按固定增长率永久增长的现金流序列 \\
+Loan amortization & 贷款摊销 & 通过定期付款逐步偿还贷款本金 \\
+Discount points & 贷款点数 & 按贷款本金比例在放款时收取的预付费用 \\
+Fisher relation & Fisher 关系 & 名义利率、实际利率与通胀率之间的精确关系 \\
+Taxable-equivalent yield & 应税等价收益率 & 与免税收益率产生相同税后回报的应税收益率 \\
+\end{longtable}

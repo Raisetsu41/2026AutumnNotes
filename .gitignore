@@ -6,3 +6,5 @@
 *.toc
 *.xdv
 _preview/
+.build/
+.vercel/
