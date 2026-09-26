@@ -418,6 +418,9 @@ def sha256(path: Path) -> str:
 def write_public_site(config: dict[str, Any], built_pdfs: list[tuple[dict[str, Any], Path]]) -> None:
     public_root = REPOSITORY_ROOT / "public"
     public_root.mkdir(exist_ok=True)
+    generated_date = datetime.now().astimezone().date()
+    date_iso = generated_date.isoformat()
+    date_display = generated_date.strftime("%Y.%m.%d")
     cards: list[str] = []
     manifest: list[dict[str, Any]] = []
     for course, pdf_path in built_pdfs:
@@ -455,30 +458,42 @@ def write_public_site(config: dict[str, Any], built_pdfs: list[tuple[dict[str, A
     * {{ box-sizing:border-box; }}
     body {{ margin:0; color:var(--ink); background:var(--paper); font-family:Inter,"Noto Sans SC","Microsoft YaHei",sans-serif; }}
     main {{ width:min(1040px,calc(100% - 32px)); margin:0 auto; padding:72px 0 96px; }}
-    header {{ max-width:720px; margin-bottom:36px; }}
-    h1 {{ margin:0 0 12px; font-family:"Noto Serif SC","Songti SC",serif; font-size:clamp(2rem,6vw,4.6rem); line-height:1.08; }}
-    header p {{ color:var(--muted); font-size:1.05rem; line-height:1.8; }}
+    header {{ display:flex; align-items:center; justify-content:space-between; gap:24px; margin-bottom:36px; padding-bottom:28px; border-bottom:1px solid #dfe3eb; }}
+    .identity {{ display:flex; align-items:center; gap:18px; min-width:0; }}
+    .monogram {{ width:58px; height:58px; flex:0 0 58px; display:grid; place-items:center; border-radius:50%; color:white; background:#173f8a; font-family:Georgia,serif; font-size:.82rem; font-weight:700; letter-spacing:.08em; box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 5px rgba(255,255,255,.55); }}
+    h1 {{ margin:0 0 8px; font-family:"Noto Serif SC","Songti SC",serif; font-size:clamp(1.65rem,4vw,2.45rem); line-height:1.15; }}
+    .byline {{ display:flex; flex-wrap:wrap; gap:6px 14px; margin:0; color:var(--muted); font-size:.95rem; }}
+    .author {{ color:var(--accent); font-weight:700; text-decoration:none; }}
+    .author:hover {{ text-decoration:underline; }}
+    time {{ flex:0 0 auto; color:var(--muted); font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size:.88rem; }}
     .grid {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px; }}
     .card {{ min-height:230px; padding:28px; background:white; border:1px solid #e4e7ec; border-radius:18px; box-shadow:0 12px 36px rgba(29,41,57,.06); display:flex; flex-direction:column; }}
     .eyebrow {{ margin:0; color:var(--accent); font-size:.78rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }}
     h2 {{ margin:18px 0 10px; font-size:1.35rem; }}
     .card > p:not(.eyebrow) {{ margin:0; color:var(--muted); }}
-    a {{ margin-top:auto; padding-top:28px; color:var(--accent); font-weight:700; text-decoration:none; }}
-    a:hover {{ text-decoration:underline; }}
-    footer {{ margin-top:34px; color:var(--muted); font-size:.88rem; }}
+    .card a {{ margin-top:auto; padding-top:28px; color:var(--accent); font-weight:700; text-decoration:none; }}
+    .card a:hover {{ text-decoration:underline; }}
+    @media (max-width:640px) {{ header {{ align-items:flex-start; flex-direction:column; gap:14px; }} .monogram {{ width:50px; height:50px; flex-basis:50px; }} time {{ padding-left:68px; }} }}
   </style>
 </head>
 <body>
   <main>
     <header>
-      <p class="eyebrow">Raisetsu41 · {html.escape(config['term'])}</p>
-      <h1>按章节生长的课程笔记</h1>
-      <p>内容来自本地 Obsidian Markdown，由 Pandoc 与 XeLaTeX 自动整理、编译和发布。</p>
+      <div class="identity">
+        <div class="monogram" aria-hidden="true">XMU</div>
+        <div>
+          <h1>{html.escape(config['term'])}季课程笔记</h1>
+          <p class="byline">
+            <a class="author" href="https://github.com/Raisetsu41" rel="me">Raisetsu41</a>
+            <span>厦门大学 · 邹至庄经济研究院</span>
+          </p>
+        </div>
+      </div>
+      <time datetime="{date_iso}">{date_display}</time>
     </header>
     <section class="grid">
       {''.join(cards)}
     </section>
-    <footer>每次发布均重新读取本地笔记；notes.json 提供文件哈希与构建信息。</footer>
   </main>
 </body>
 </html>
