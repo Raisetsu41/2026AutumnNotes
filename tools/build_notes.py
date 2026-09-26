@@ -316,6 +316,9 @@ def tex_document(course: dict[str, Any], config: dict[str, Any]) -> str:
 \\documentclass[11pt,a4paper]{{ctexart}}
 
 \\newcommand{{\\CourseName}}{{{course['course_name']}}}
+\\usepackage{{xcolor}}
+\\definecolor{{CourseAccent}}{{HTML}}{{{course['accent_color']}}}
+\\definecolor{{CourseAccentDark}}{{HTML}}{{{course['accent_dark']}}}
 \\input{{../shared-preamble.tex}}
 
 \\title{{{course['title']}}}
@@ -328,7 +331,7 @@ def tex_document(course: dict[str, Any], config: dict[str, Any]) -> str:
 \\thispagestyle{{empty}}
 
 \\begin{{center}}
-\\small {course['subtitle_tex']}
+\\small\\color{{black!68}} {course['subtitle_tex']}
 \\end{{center}}
 
 \\newpage

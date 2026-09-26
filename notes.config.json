@@ -9,6 +9,8 @@
       "course_name": "金融经济学 Financial Economics",
       "title": "金融经济学学习笔记",
       "pdf_name": "金融经济学.pdf",
+      "accent_color": "F39C4A",
+      "accent_dark": "B95816",
       "progress": "更新至 Chapter 4",
       "subtitle_tex": "按 Bodie, Merton and Cleeton, \\textit{Financial Economics}, 2nd ed. 与课堂材料整理。",
       "chapters": [
@@ -49,6 +51,8 @@
       "course_name": "宏观经济学 Macroeconomics",
       "title": "宏观经济学学习笔记",
       "pdf_name": "宏观经济学.pdf",
+      "accent_color": "88A84E",
+      "accent_dark": "526F2D",
       "progress": "更新至 Chapter 3",
       "subtitle_tex": "按 Mankiw, \\textit{Macroeconomics} 与 2026 秋课堂讲义整理。",
       "chapters": [
@@ -84,6 +88,8 @@
       "course_name": "概率论与数理统计 Probability and Statistics",
       "title": "概率论与数理统计学习笔记",
       "pdf_name": "概率论与数理统计.pdf",
+      "accent_color": "B39DDB",
+      "accent_dark": "6F56A6",
       "progress": "更新至 Chapter 2 与第一次习题课",
       "subtitle_tex": "按 Casella and Berger, \\textit{Statistical Inference}, 2nd ed. 与 2026 秋课堂讲义整理。",
       "chapters": [

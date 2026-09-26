@@ -33,31 +33,46 @@
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
+\setlength{\headheight}{22pt}
 \fancyhf{}
-\fancyhead[L]{\small \CourseName\ \dash\ 学习笔记}
-\fancyhead[R]{\small 2026 秋}
-\fancyfoot[C]{\small \dash\ \thepage\ \dash}
+\fancyhead[L]{\small\color{CourseAccentDark} \CourseName\ \dash\ 学习笔记}
+\fancyhead[R]{\small\color{CourseAccentDark} 2026 秋}
+\fancyfoot[C]{\small\color{CourseAccentDark} \dash\ \thepage\ \dash}
 \renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\headrule}{%
+  \hbox to\headwidth{\color{CourseAccent}\leaders\hrule height \headrulewidth\hfill}}
 
 \usepackage{hyperref}
 \hypersetup{
   colorlinks=true,
-  linkcolor=black,
-  urlcolor=blue,
+  linkcolor=CourseAccentDark,
+  urlcolor=CourseAccentDark,
   pdftitle={\CourseName\ 学习笔记},
   pdfauthor={Raisetsu41}
 }
 
 \usepackage{titling}
-\pretitle{\begin{center}\Large\bfseries}
-\posttitle{\end{center}\vspace{-0.4cm}}
-\preauthor{\begin{center}\large}
+\pretitle{\begin{center}\vspace*{2.2cm}\color{CourseAccentDark}\fontsize{28}{34}\selectfont\bfseries}
+\posttitle{\par\vspace{0.9em}{\color{CourseAccent}\rule{0.30\linewidth}{1.6pt}}\end{center}\vspace{0.3cm}}
+\preauthor{\begin{center}\large\color{black!78}}
 \postauthor{\\[0.3em]\normalsize 厦门大学 \dotc\ 邹至庄经济研究院 \dotc\ 2026 秋\end{center}}
-\predate{\begin{center}}
+\predate{\begin{center}\color{CourseAccentDark}\bfseries}
 \postdate{\end{center}}
 
+\ctexset{
+  section={format=\Large\bfseries\color{CourseAccentDark}},
+  subsection={format=\large\bfseries\color{CourseAccentDark}},
+  subsubsection={format=\normalsize\bfseries\color{CourseAccentDark}}
+}
+
+% Pandoc 将 Definition、Theorem、术语等强调内容输出为 \textbf。
+% 用较深的课程色保证正文强调清晰，同时保留浅色用于装饰线。
+\let\CourseOriginalTextbf\textbf
+\renewcommand{\textbf}[1]{\textcolor{CourseAccentDark}{\CourseOriginalTextbf{#1}}}
+
 \usepackage{tocloft}
-\renewcommand{\cftsecfont}{\bfseries}
+\renewcommand{\cftsecfont}{\bfseries\color{CourseAccentDark}}
+\renewcommand{\cftsecpagefont}{\bfseries\color{CourseAccentDark}}
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{3}
 
