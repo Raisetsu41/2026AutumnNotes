@@ -8,7 +8,7 @@
 - [`宏观经济学.pdf`](Macroeconomics/宏观经济学.pdf)：Chapter 1–3；
 - [`概率论与数理统计.pdf`](Probability-Statistics/概率论与数理统计.pdf)：Chapter 1–2、Problem Set 1 与第一次习题课。
 
-内容来自 `D:\Obsidian\Notes`，排版沿用
+内容从本地 Obsidian Markdown 源仓库生成，排版沿用
 [`Latex-Notes-Template`](https://github.com/Raisetsu41/Latex-Notes-Template) 的页面、数学快捷命令和页眉页脚风格。
 
 ## 工作流
@@ -40,10 +40,18 @@ Markdown 是内容的唯一来源。`main.tex` 和 `chapters/*.tex` 会自动生
 python .\tools\build_notes.py doctor
 ```
 
-如果 Obsidian 仓库不在默认路径，可临时覆盖：
+构建前可用环境变量指定 Obsidian 仓库：
 
 ```powershell
-$env:OBSIDIAN_NOTES_ROOT = 'E:\MyVault'
+$env:OBSIDIAN_NOTES_ROOT = 'C:\path\to\your\vault'
+```
+
+也可以在仓库根目录创建不会提交到 Git 的 `.notes.local.json`：
+
+```json
+{
+  "obsidian_root": "C:/path/to/your/vault"
+}
 ```
 
 ## 生成与编译

@@ -8,3 +8,4 @@
 _preview/
 .build/
 .vercel/
+.notes.local.json

@@ -26,6 +26,7 @@ from urllib.parse import quote
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CONFIG = REPOSITORY_ROOT / "notes.config.json"
+LOCAL_CONFIG = REPOSITORY_ROOT / ".notes.local.json"
 CALLOUT_NAMES = {
     "abstract": "摘要",
     "bug": "问题",
@@ -59,12 +60,22 @@ def load_config(path: Path) -> dict[str, Any]:
 
 
 def resolve_obsidian_root(config: dict[str, Any]) -> Path:
-    configured = os.environ.get("OBSIDIAN_NOTES_ROOT", config["obsidian_root"])
+    configured = os.environ.get("OBSIDIAN_NOTES_ROOT")
+    if not configured and LOCAL_CONFIG.is_file():
+        with LOCAL_CONFIG.open("r", encoding="utf-8") as handle:
+            configured = json.load(handle).get("obsidian_root")
+    if not configured:
+        configured = config.get("obsidian_root")
+    if not configured:
+        raise FileNotFoundError(
+            "尚未配置 Obsidian 仓库。请设置 OBSIDIAN_NOTES_ROOT，"
+            "或在仓库根目录创建 .notes.local.json。"
+        )
     root = Path(configured).expanduser().resolve()
     if not root.is_dir():
         raise FileNotFoundError(
             f"找不到 Obsidian 仓库：{root}\n"
-            "可设置 OBSIDIAN_NOTES_ROOT 环境变量覆盖 notes.config.json。"
+            "可设置 OBSIDIAN_NOTES_ROOT，或更新 .notes.local.json。"
         )
     return root
 
