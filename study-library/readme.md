@@ -16,4 +16,4 @@
 
 ## 作业详解
 
-- [概率论与数理统计：第二次作业完整答案](assignments/probability-statistics-ps02-solutions.pdf)：2026 PS2 全部 11 题，含中文推导与英文答案。
+- [概率论与数理统计：第二次作业完整答案](assignments/probability-statistics-ps02-solutions.pdf)：2026 PS2 全部 11 题的 B5 书册版，含原理说明、逐步推导和独立英文作答附录。
