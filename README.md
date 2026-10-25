@@ -1,5 +1,11 @@
 # 2026 Autumn LaTeX Notes
 
+## 当前课程资料 · Study Library
+
+[九份课程 PDF 下载索引](study-library/readme.md)：金融经济学、宏观经济学、概率论与数理统计的自学讲义、期中练习册与逐题详解。署名 Raisetsu41，更新于 2026-10-25。
+
+---
+
 本仓库把本地 Obsidian Markdown 按课程与教材章节整理为 LaTeX/PDF，不按上课日期拆分最终文档。
 
 当前输出：
