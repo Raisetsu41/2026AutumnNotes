@@ -1,18 +1,8 @@
 # 2026 Autumn LaTeX Notes
 
-## 当前课程资料 · Study Library
+## Study Library
 
-[九份课程 PDF 下载索引](study-library/readme.md)：金融经济学、宏观经济学、概率论与数理统计的自学讲义、期中练习册与逐题详解。署名 Raisetsu41，更新于 2026-10-25。
-
----
-
-本仓库把本地 Obsidian Markdown 按课程与教材章节整理为 LaTeX/PDF，不按上课日期拆分最终文档。
-
-当前输出：
-
-- [`金融经济学.pdf`](Financial-Economics/金融经济学.pdf)：Chapter 1、2、4；
-- [`宏观经济学.pdf`](Macroeconomics/宏观经济学.pdf)：Chapter 1–3；
-- [`概率论与数理统计.pdf`](Probability-Statistics/概率论与数理统计.pdf)：Chapter 1–2、Problem Set 1 与第一次习题课。
+[课程 PDF 下载索引](study-library/readme.md)：金融经济学、宏观经济学、概率论与数理统计的自学讲义、期中练习册与逐题详解。\
 
 内容从本地 Obsidian Markdown 源仓库生成，排版沿用
 [`Latex-Notes-Template`](https://github.com/Raisetsu41/Latex-Notes-Template) 的页面、数学快捷命令和页眉页脚风格。
